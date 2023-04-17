@@ -1,5 +1,3 @@
-/*header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}*/
+.delete-checkbox{
+    margin-top: 10px;
+}

@@ -19,9 +19,11 @@
 
     <div class="container-fluid p-0">
         <!--first child-->
-        <nav class="navbar bg-body-tertiary navbar-expand-lg"> <!--bg-info MAYBE NEED TO ADD-->
-            <div class="container-fluid justify-content-start">
-              <span class="navbar-text">Product List</span>
+        <nav class="navbar bg-info navbar-expand-lg"> <!--bg-body-tertiary MAYBE NEED TO ADD-->
+            <div class="container-fluid d-flex"> <!--container-fluid justify-content-start -->
+              <div class="d-flex p-2 mr-auto"> <h5 class="navbar-text fw-bold">Product List</h5></div>
+             <!-- <h5 class="navbar-text fw-bold">Product List</h5>-->
+             <!-- <span class="navbar-text fw-bold">Product List</span>-->
               <button><a href="index.php?add_product" id="add-product-btn" class="btn btn-outline-success me-2" type="button">ADD</a></button>
             
              <!-- <button id="add-product-btn" class="btn btn-outline-success me-2" type="button">ADD</button>-->
@@ -33,51 +35,58 @@
 
         <!--second child-->
         <div class="row">
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
+          <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                <div>
+                  <input class="delete-chechbox form-check-input" type="checkbox" id="check1"> <!--MAYBE NEED TO ADD VALUE AND CHECKED-->
+                </div>
+
+
+                  <div class="card-body text-center">
+                    <h5 class="card-title">JVC200123</h5>
+                    <h6 class="card-text">Acme DISC</h6>
+                    <h6 class="card-text">1.00 $</h6>
+                    <h6 class="card-text">Size: 700 MB</h6>
+                   <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Acme DISC</h6>-->
+                   <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
                   </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
+                </div>
+          </div>
+
+          <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">JVC200123</h5>
+                    <h6 class="card-text">Acme DISC</h6>
+                    <h6 class="card-text">1.00 $</h6>
+                    <h6 class="card-text">Size: 700 MB</h6>
                   </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
+                </div>
+          </div>  
+          
+          <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">JVC200123</h5>
+                    <h6 class="card-text">Acme DISC</h6>
+                    <h6 class="card-text">1.00 $</h6>
+                    <h6 class="card-text">Size: 700 MB</h6>
                   </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
+                </div>
+          </div>
+
+          <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">JVC200123</h5>
+                    <h6 class="card-text">Acme DISC</h6>
+                    <h6 class="card-text">1.00 $</h6>
+                    <h6 class="card-text">Size: 700 MB</h6>
                   </div>
-            </div>
-        </div>
+                </div>
+          </div>
+
+      </div>
 
     </div>
 
