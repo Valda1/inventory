@@ -5,9 +5,15 @@
 //use task\models\Product;
 //use PDO;
 
-class Database{
+//class Database{
+
+    $connection = mysqli_connect("localhost", "root", "", "store");
+
+    if(!$connection){
+        die("Connection error");
+    }
     //private PDO $pdo;
-    private $host = "localhost";
+    /*private $host = "localhost";
     private $username = "root";
     private $password = "";
     private $db = "store";
@@ -15,9 +21,9 @@ class Database{
     public function connect(){
         $connection = mysqli_connect($this->host, $this->username, $this->password, $this->db);
         return $connection; 
-    }
+    }*/
 
-    public function read($query){
+    /*public function read($query){
         $conn = $this->connect();
         $result = mysqli_query($conn, $query);
 
@@ -45,7 +51,7 @@ class Database{
         }
         
 
-    }
+    }*/
 
     /*public function createProduct($query){
         $conn = $this->connect();
@@ -70,10 +76,9 @@ class Database{
     }*/
 
 
-}
+//}
 
-$DB = new Database();
-$DB->getProduct();
+//$DB = new Database();
 //inside () you write the query
 //for example $DB->getAllProducts("select * from products");
 //or $query = "select * from users";
