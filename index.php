@@ -1,9 +1,10 @@
 <?php
   //include_once 'database/database.php';
   //include_once 'products/product_controller.php';
-  require_once('database/database.php');
-  $query = "SELECT * FROM products";
-  $result = mysqli_query($connection, $query);
+  //require 'database/database.php';
+  //$query = "SELECT * FROM products";
+  //$result = mysqli_query($connection, $query);
+  
 ?>
 
 <!DOCTYPE html>
@@ -46,28 +47,9 @@
                         <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1"> <!--MAYBE NEED TO ADD VALUE AND CHECKED-->
                     </div>
 
-                    <div class="card-body text-center" action="products/product_controller.php" method="GET">
-                      <h5 class="card-title">
-
-                        <?php
-
-                        while($row = mysqli_fetch_assoc($result)){
-                          echo $row['name'];
-                        }
-
-                        ?>
-
-                      </h5>
-                      <h6 class="card-text">
-                      <?php
-
-                      while($row = mysqli_fetch_assoc($result)){
-                          echo $row['price'];
-                        }
-
-                        ?>
-                      </h6>
-
+                    <div class="card-body text-center" action="" method="GET">
+                      <h5 class="card-title"></h5>
+                      <h6 class="card-text"></h6>
                       <h6 class="card-text">Size: 700 MB</h6>
                      <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Acme DISC</h6>-->
                      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->

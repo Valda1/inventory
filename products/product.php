@@ -7,7 +7,7 @@
 abstract class Product {
     public string $sku;
     public string $name;
-    public int $price;
+    public float $price;
     public string $productType;
     public int $size; //for DVD
     public int $height; //for furniture

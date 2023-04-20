@@ -7,11 +7,34 @@
 
 //class Database{
 
-    $connection = mysqli_connect("localhost", "root", "", "store");
+    /*$connection = mysqli_connect("localhost", "root", "", "store");
+    }*/
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $sku = $_POST['sku'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+
+    $connection = new mysqli('localhost', 'root', '', 'store');
 
     if(!$connection){
-        die("Connection error");
+        echo "Connection failed";
+        die(mysqli_error($connection));
+    }else{
+        $query = "INSERT INTO products VALUES ('$sku', '$name', '$price')";
+        $result = mysqli_query($connection, $query);
+        
+        if($result){
+            echo "Data inserted!";
+        }else{
+            //die(mysqli_error($connection));
+            echo "Failed!";
+        }
     }
+
+}
+
+
     //private PDO $pdo;
     /*private $host = "localhost";
     private $username = "root";
