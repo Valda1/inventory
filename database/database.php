@@ -5,12 +5,12 @@
 //use task\models\Product;
 //use PDO;
 
-//class Database{
+class Database{
 
     /*$connection = mysqli_connect("localhost", "root", "", "store");
     }*/
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    /*if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $sku = $_POST['sku'];
         $name = $_POST['name'];
         $price = $_POST['price'];
@@ -32,11 +32,12 @@
         }
     }
 
-}
+}*/
+
 
 
     //private PDO $pdo;
-    /*private $host = "localhost";
+    private $host = "localhost";
     private $username = "root";
     private $password = "";
     private $db = "store";
@@ -44,7 +45,7 @@
     public function connect(){
         $connection = mysqli_connect($this->host, $this->username, $this->password, $this->db);
         return $connection; 
-    }*/
+    }
 
     /*public function read($query){
         $conn = $this->connect();
@@ -99,7 +100,7 @@
     }*/
 
 
-//}
+}
 
 //$DB = new Database();
 //inside () you write the query

@@ -1,11 +1,17 @@
 <?php
 
-include("database\database.php");
+//controllers are used to update info in DB
+
+//include("database\database.php");
 //use task\database\database;
 
-class ProductController{
+class ProductController extends Products{
 
-    function add_product($data){
+    public function addProduct($sku, $name, $price){
+        $this->setProduct($sku, $name, $price);
+    }
+
+    /*function add_product($data){
 
         $sku = $data['sku'];
         $name = $data['name'];
@@ -34,6 +40,6 @@ class ProductController{
         $DB = new Database();
         $DB->read($query);
 
-    }
+    }*/
 
 }

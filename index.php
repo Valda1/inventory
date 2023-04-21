@@ -1,9 +1,10 @@
 <?php
-  //include_once 'database/database.php';
+  include 'database/database.php';
   //include_once 'products/product_controller.php';
   //require 'database/database.php';
   //$query = "SELECT * FROM products";
   //$result = mysqli_query($connection, $query);
+  include 'models/products.php';
   
 ?>
 
@@ -26,6 +27,7 @@
 </head>
 
 <body>
+
 <div class="container-fluid p-0">
         <!--first child-->
         <nav class="navbar bg-info navbar-expand-lg"> <!--bg-body-tertiary MAYBE NEED TO ADD-->
@@ -38,21 +40,47 @@
 
         <hr>
 
+<?php
+  $product = new Products;
+  $result = $product->getAllProducts();
+  if($result){
+    foreach($result as $row){
+      ?>
+      <div class="col-md-3">
+                <div class="card border border-dark" style="width: 18rem;">
+                    <div>
+                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1">
+                    </div>
+
+                    <div class="card-body text-center">
+                      <h5 class="card-title"><?= $row['sku'] ?></h5>
+                      <h6 class="card-text"><?= $row['name'] ?></h6>
+                      <h6 class="card-text"><?= $row['price'] ?></h6>
+                      <h6 class="card-text">Size: 700 MB</h6>
+                    </div>
+                  </div>
+            </div> 
+          <?php
+
+    }
+  }
+  
+  ?>
+
+
         <!--second child-->
         <!--first row of products-->
-        <div class="row">
+       <!-- <div class="row">
             <div class="col-md-3">
                 <div class="card border border-dark" style="width: 18rem;">
                     <div>
-                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1"> <!--MAYBE NEED TO ADD VALUE AND CHECKED-->
+                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1"> MAYBE NEED TO ADD VALUE AND CHECKED
                     </div>
 
                     <div class="card-body text-center" action="" method="GET">
                       <h5 class="card-title"></h5>
                       <h6 class="card-text"></h6>
                       <h6 class="card-text">Size: 700 MB</h6>
-                     <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Acme DISC</h6>-->
-                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
                     </div>
                   </div>
             </div>
@@ -104,10 +132,10 @@
 
         </div>
 
-        <!--second row of products-->
+        second row of products
         <div class="row">
 
-        </div>
+        </div>-->
 
 
 
