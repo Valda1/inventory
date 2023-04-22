@@ -7,45 +7,38 @@
 
 class Database{
 
-    /*$connection = mysqli_connect("localhost", "root", "", "store");
-    }*/
-
-    /*if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $sku = $_POST['sku'];
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-
-    $connection = new mysqli('localhost', 'root', '', 'store');
-
-    if(!$connection){
-        echo "Connection failed";
-        die(mysqli_error($connection));
-    }else{
-        $query = "INSERT INTO products VALUES ('$sku', '$name', '$price')";
-        $result = mysqli_query($connection, $query);
-        
-        if($result){
-            echo "Data inserted!";
-        }else{
-            //die(mysqli_error($connection));
-            echo "Failed!";
-        }
-    }
-
-}*/
-
-
-
-    //private PDO $pdo;
+    //private PDO $connect;
     private $host = "localhost";
     private $username = "root";
     private $password = "";
     private $db = "store";
-    
-    public function connect(){
-        $connection = mysqli_connect($this->host, $this->username, $this->password, $this->db);
-        return $connection; 
+
+    /*protected function connect(){
+        //MAYBE ADD TRY CATCH OR SOME OTHER ERROR HANDLING
+        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db;
+        $pdo = new PDO($dsn, $this->username, $this->password);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        //$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+        return $pdo;
+    }*/
+
+    protected function connect(){
+        try{
+            $connect = new PDO("mysql:host=$this->host;dbname=$this->db", $this->username, $this->password);
+
+            //$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $connect;
+            //return statement maybe
+
+            //$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+        }catch(PDOException $exception){
+            $exception->getMessage();
+            die();
+        }
     }
+
+}
 
     /*public function read($query){
         $conn = $this->connect();
@@ -76,35 +69,3 @@ class Database{
         
 
     }*/
-
-    /*public function createProduct($query){
-        $conn = $this->connect();
-        $result = mysqli_query($conn, $query);
-
-        if(!$result){
-            return false;
-        }else{
-            $data = false;
-            while($row = mysqli_fetch_assoc($result)){
-                $data[] = $row;
-            }
-
-            return $data;
-        }
-
-    }*/
-
-    /*public function deteleProduct($query){
-        $conn = $this->connect();
-
-    }*/
-
-
-}
-
-//$DB = new Database();
-//inside () you write the query
-//for example $DB->getAllProducts("select * from products");
-//or $query = "select * from users";
-//$data = $DB->getAllProducts($query);
-//print_r($data);

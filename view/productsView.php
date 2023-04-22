@@ -6,6 +6,10 @@ class ProductsView extends Products{
 
     public function showProduct($sku){
         $results = $this->getProduct($sku);
-        echo $sku;
+        echo $results['products_sku'];
+    }
+
+    public function showAllProducts(){
+        
     }
 }

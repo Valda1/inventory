@@ -1,26 +1,3 @@
-<?php
-/*require 'database/database.php';
-
-if(isset($_POST["save-product-btn"])){
-    $sku = $_POST["sku"];
-    $name = $_POST["name"];
-    $price = $_POST["price"];
-    //$product_type = $_POST["product_type"];
-}
-
-$query = "INSERT INTO products VALUES (?, ?, ?)";
-
-$stmt = mysqli_stmt_init($connection);
-
-if(!mysqli_stmt_prepare($stmt, $query)){
-  die(mysqli_error($connection));
-}
-
-mysqli_stmt_bind_param($stmt, "i", "s", "d");
-mysqli_stmt_execute($stmt);*/
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +16,7 @@ mysqli_stmt_execute($stmt);*/
     <nav class="navbar bg-body-tertiary navbar-expand-lg"> <!--bg-info MAYBE NEED TO ADD-->
         <div class="container-fluid justify-content-start">
           <span class="navbar-text">Product List</span>
-          <button id="save-product-btn" class="btn btn-outline-success me-2" type="submit">Save</button>
+          <button id="save-product-btn" class="btn btn-outline-success me-2" type="submit" name="save">Save</button>
           <button id="cancel-btn" class="btn btn-outline-success me-2" type="button">Cancel</button>
         </div>
       </nav>
@@ -47,7 +24,7 @@ mysqli_stmt_execute($stmt);*/
 
       <hr>
 
-<form id="product-form" action="database/database.php" method="post">
+<form id="product-form" action="code_for_adding.php" method="post">
     <div class="input-group mb-3">
         <span class="input-group-text" id="sku">SKU</span>
         <input type="text" class="form-control" aria-describedby="basic-addon1" name="sku">
@@ -75,7 +52,7 @@ mysqli_stmt_execute($stmt);*/
         </select>
       </div>
 
-      <button id="save-product-btn" class="btn btn-outline-success me-2" type="submit">Save</button>
+      <button id="save-product-btn" class="btn btn-outline-success me-2" type="submit" name="save">Save</button>
       
 </form>
 
