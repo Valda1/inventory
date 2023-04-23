@@ -13,15 +13,6 @@ class Database{
     private $password = "";
     private $db = "store";
 
-    /*protected function connect(){
-        //MAYBE ADD TRY CATCH OR SOME OTHER ERROR HANDLING
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db;
-        $pdo = new PDO($dsn, $this->username, $this->password);
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        //$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-        return $pdo;
-    }*/
-
     protected function connect(){
         try{
             $connect = new PDO("mysql:host=$this->host;dbname=$this->db", $this->username, $this->password);

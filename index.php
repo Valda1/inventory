@@ -1,12 +1,9 @@
 <?php
   include 'database/database.php';
-  //include_once 'products/product_controller.php';
-  //require 'database/database.php';
-  //$query = "SELECT * FROM products";
-  //$result = mysqli_query($connection, $query);
   include 'models/product.php';
   include 'models/products.php';
   include 'controllers/product_controller.php';
+  include 'view/products_view.php';
   
   
 ?>
@@ -43,57 +40,14 @@
 
         <hr>
 
+        
      <div class="col-md-3">
-                <div class="card border border-dark" style="width: 18rem;">
-                    <div>
-                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1">
-                    </div>
-
-                    <div class="card-body text-center">
-                    <!--  <?php
-                      foreach($results as $row){
-                        echo '
-                          <h5 class="card-title">'.$row['sku'].'</h5>
-                          <h6 class="card-text">'.$row['name'].'</h6>
-                          <h6 class="card-text">'.$row['price'].'</h6>';
-                      }
-
-                      ?>-->
+     
                       <?php
-                      $products = new Products();
-                      $products->getAllProducts();
-
+                      $products = new ProductsView();
+                      $products->showAllProducts();
                       ?>
-                      <!--<h5 class="card-title"><?= $row['sku'] ?></h5>
-                      <h6 class="card-text"><?= $row['name'] ?></h6>
-                      <h6 class="card-text"><?= $row['price'] ?></h6>
-                      <h6 class="card-text">Size: 700 MB</h6>-->
-                    </div>
-                  </div>
             </div>
-  
-<!-- HIS EXAMPLE
-<div class="container my-5">
-    <div class="row g-4">
-        <?php foreach ($results as $row => $product) : ?>
-            <div class="col-6 col-md-3">
-                <div class="card border-primary">
-                    <div class="card-body">
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input form="delete-form" type="checkbox" class="delete-checkbox form-check-input" name="<?= $product['sku'] ?>">
-                            </label>
-                        </div>
-                        <p class="card-title text-center"><?= $product['sku'] ?></p>
-                        <p class="card-text text-center"><?= $product['name'] ?></p>
-                        <p class="card-text text-center"><?= $product['price'] ?> $</p>
-                       <p class="card-text text-center"><?= $product['value'] ?></p>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach ?>
-    </div>
-</div> HIS EXAMPLE ENDS HERE -->
 
 
         <!--second child-->
@@ -105,7 +59,7 @@
                         <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1"> MAYBE NEED TO ADD VALUE AND CHECKED
                     </div>
 
-                    <div class="card-body text-center" action="" method="GET">
+                    <div class="card-body text-center">
                       <h5 class="card-title"></h5>
                       <h6 class="card-text"></h6>
                       <h6 class="card-text">Size: 700 MB</h6>
@@ -170,13 +124,6 @@
 </div>
 
 <!--third child-->
-<div class="container">
-      <?php
-      if(isset($_GET['add_product'])){
-        include('add_product.php');
-      }
-      ?>
-    </div>
 
 
 
