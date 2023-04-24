@@ -1,11 +1,8 @@
 <?php
   include 'database/database.php';
-  include 'models/product.php';
   include 'models/products.php';
   include 'controllers/product_controller.php';
   include 'view/products_view.php';
-  
-  
 ?>
 
 <!DOCTYPE html>
@@ -34,25 +31,44 @@
             <div class="container-fluid justify-content-start">
               <h5 class="navbar-text fw-bold">Product List</h5>
               <button><a href="index.php?add_product" id="add-product-btn" class="btn btn-outline-success me-2" type="button">ADD</a></button>
-              <button id="delete-product-btn" class="btn btn-outline-success me-2" type="button">MASS DELETE</button>
+            <form id="cards-form" action="code_for_deleting.php" method="post">
+              <button id="delete-product-btn" class="btn btn-outline-success me-2" type="submit" name="delete">MASS DELETE</button>
+            </form>
             </div>
           </nav>
+</div>
 
         <hr>
 
-        
-     <div class="col-md-3">
-     
-                      <?php
-                      $products = new ProductsView();
-                      $products->showAllProducts();
-                      ?>
+      <div class="container">
+        <div class="row">
+          <?php
+          $file = new Products();
+          $products = $file->getAllProducts();
+          foreach($products as $product){
+          ?>
+          <div class="col-md-3">
+            <form id="cards-form" action="code_for_deleting.php" method="post">
+            <div class="card border border-dark" style="width: 18rem;">
+              <div>
+                <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name=<?php $product['sku'] ?>>
+              </div>
+                <div class="card-body text-center">
+                      <h5 class="card-title"><?php echo $product['sku']; ?></h5>
+                      <h6 class="card-text"><?php echo $product['name']; ?></h6>
+                      <h6 class="card-text"><?php echo $product['price']; ?></h6>
+                </div>
             </div>
+          </form>
+          </div>
+            <?php } ?>
+        </div>
+</div>
 
 
         <!--second child-->
         <!--first row of products-->
-       <!-- <div class="row">
+       <!--<div class="row">
             <div class="col-md-3">
                 <div class="card border border-dark" style="width: 18rem;">
                     <div>
@@ -114,14 +130,11 @@
 
         </div>
 
-        second row of products
-        <div class="row">
-
-        </div>-->
+        
 
 
 
-</div>
+</div>-->
 
 <!--third child-->
 

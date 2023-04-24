@@ -4,6 +4,11 @@
 
 class Products extends Database{
 
+    public function printHi(){
+        $word = "Hi!";
+        return $word;
+    }
+
     protected function getProduct($sku){
         $query = "SELECT * FROM products WHERE sku = ?;";
         $stmt = $this->connect()->prepare($query);
@@ -18,7 +23,6 @@ class Products extends Database{
         $stmt = $this->connect()->prepare($query);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //$results = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         return $results;
 
