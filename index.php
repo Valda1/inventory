@@ -12,6 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Page</title>
+    <!--jquery cdn link-->
+    <script
+    src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+    crossorigin="anonymous"></script>
     <!--css file-->
     <link rel="stylesheet" href="style.css">
     <!--bootstrap link-->
@@ -21,6 +26,8 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
      crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!--vue.js link-->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
 </head>
 
 <body>
@@ -41,6 +48,7 @@
         <hr>
 
       <div class="container">
+        <form id="cards-form" action="code_for_deleting.php" method="post">
         <div class="row">
           <?php
           $file = new Products();
@@ -48,10 +56,11 @@
           foreach($products as $product){
           ?>
           <div class="col-md-3">
-            <form id="cards-form" action="code_for_deleting.php" method="post">
+            <!--<form id="cards-form" action="code_for_deleting.php" method="post">-->
             <div class="card border border-dark" style="width: 18rem;">
               <div>
-                <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name=<?php $product['sku'] ?>>
+                <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="<?php echo $product['sku']; ?>">
+                <!--<input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" value="<?php echo $product['sku']; ?>">-->
               </div>
                 <div class="card-body text-center">
                       <h5 class="card-title"><?php echo $product['sku']; ?></h5>
@@ -59,84 +68,12 @@
                       <h6 class="card-text"><?php echo $product['price']; ?></h6>
                 </div>
             </div>
-          </form>
+          <!--</form>-->
           </div>
             <?php } ?>
         </div>
+        </form>
 </div>
-
-
-        <!--second child-->
-        <!--first row of products-->
-       <!--<div class="row">
-            <div class="col-md-3">
-                <div class="card border border-dark" style="width: 18rem;">
-                    <div>
-                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1"> MAYBE NEED TO ADD VALUE AND CHECKED
-                    </div>
-
-                    <div class="card-body text-center">
-                      <h5 class="card-title"></h5>
-                      <h6 class="card-text"></h6>
-                      <h6 class="card-text">Size: 700 MB</h6>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="card border border-dark" style="width: 18rem;">
-                    <div>
-                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1">
-                    </div>
-
-                    <div class="card-body text-center">
-                      <h5 class="card-title">JVC200123</h5>
-                      <h6 class="card-text">Acme DISC</h6>
-                      <h6 class="card-text">1.00 $</h6>
-                      <h6 class="card-text">Size: 700 MB</h6>
-                    </div>
-                  </div>
-            </div>  
-            
-            <div class="col-md-3">
-                <div class="card border border-dark" style="width: 18rem;">
-                    <div>
-                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1">
-                    </div>
-
-                    <div class="card-body text-center">
-                      <h5 class="card-title">JVC200123</h5>
-                      <h6 class="card-text">Acme DISC</h6>
-                      <h6 class="card-text">1.00 $</h6>
-                      <h6 class="card-text">Size: 700 MB</h6>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="card border border-dark" style="width: 18rem;">
-                    <div>
-                        <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" id="check1">
-                    </div>
-
-                    <div class="card-body text-center">
-                      <h5 class="card-title">JVC200123</h5>
-                      <h6 class="card-text">Acme DISC</h6>
-                      <h6 class="card-text">1.00 $</h6>
-                      <h6 class="card-text">Size: 700 MB</h6>
-                    </div>
-                  </div>
-            </div>
-
-        </div>
-
-        
-
-
-
-</div>-->
-
-<!--third child-->
 
 
 

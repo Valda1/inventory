@@ -5,31 +5,53 @@ include 'models/product.php';
 include 'models/products.php';
 include 'controllers/product_controller.php';
 
-if(isset($POST['delete'])){
-    /*public static function delete()
-    {
-        if ($_POST) {
-            $db = new Database();
-            foreach ($_POST as $key => $value) {
-                $db->deleteProduct($key);
-            }
-        }
-        header('Location: /');
-    }*/
+if(isset($_POST['delete']) && isset($_POST['sku'])){
 
-    /*public function deleteProduct($sku)
-    {
-        $statement = $this->pdo->prepare('DELETE FROM products WHERE sku = :sku');
-        $statement->bindValue(':sku', $sku);
-
-        return $statement->execute();
-    }*/
-
-    $products = $_POST[$product['sku']];
-
-    //$query = "DELETE FROM products WHERE sku = $product['sku']";
-    $stmt = connect()->prepare(query);
-    $stmt = execute($query);
-
-
+    echo "yes";
+}else{
+    echo "no";
 }
+
+
+
+//if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sku'])){
+    /*if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        var_dump($_POST); // Debugging statement
+        if (isset($_POST['sku']) && is_array($_POST['sku'])) {
+          foreach ($_POST['sku'] as $sku) {
+            var_dump($sku); // Debugging statement
+            // Do something with the $sku value
+            echo "yes";
+          }
+        }
+      }*/
+
+    //$deletion = new ProductController();
+
+    /*foreach($_POST["sku"] as $sku){
+        echo $sku;
+        //$deletion->deleteProduct($sku);
+    }
+
+    /*$all_skus = $_POST['sku']; 
+    $extract_sku = implode(',', $all_skus);
+    echo $extract_sku;*/
+
+
+//if($_SERVER['REQUEST_METHOD'] == 'POST'){
+//if(isset($_POST['delete'])){
+
+    //$deletion = new ProductController();
+    //$sku = $_POST['sku'];
+
+    /*foreach($_POST as $key => $value){
+        $deletion->deleteProduct($key);
+    }*/
+
+    //$deletion->deleteProduct($sku);
+
+    
+    //$products = $_POST[$product['sku']];
+
+    //header("location: index.php?error=none");
+//}

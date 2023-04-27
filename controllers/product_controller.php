@@ -12,5 +12,9 @@ class ProductController extends Products{
         $this->setProduct($sku, $name, $price);
     }
 
+    public function deleteProduct($sku){
+        $this->removeProduct($sku);
+    }
+
 
 }

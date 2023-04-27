@@ -4,17 +4,12 @@
 
 class Products extends Database{
 
-    public function printHi(){
-        $word = "Hi!";
-        return $word;
-    }
-
-    protected function getProduct($sku){
-        $query = "SELECT * FROM products WHERE sku = ?;";
+    public function getProduct($sku){
+        $query = "SELECT * FROM products WHERE sku = ?";
         $stmt = $this->connect()->prepare($query);
-        $stmt = execute($query);
+        $stmt->execute();
 
-        $results = $stmt->fetchAll();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results;
     }
 
@@ -40,7 +35,7 @@ class Products extends Database{
     }
 
 
-    public function deleteProduct($sku){
+    public function removeProduct($sku){
         $query = "DELETE FROM products WHERE sku = ?";
         $stmt = $this->connect()->prepare($query);
         $stmt->execute([$sku]);

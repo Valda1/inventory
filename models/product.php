@@ -9,6 +9,8 @@ abstract class Product {
     public string $name;
     public float $price;
     public string $productType;
+    public string $attributes;
+    public array $validTypes = ['DVD', 'Furniture', 'Book'];
     public int $size; //for DVD
     public int $height; //for furniture
     public int $width; //for furniture
