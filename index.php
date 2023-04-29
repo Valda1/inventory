@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Page</title>
+    <title>Prpduct List</title>
     <!--jquery cdn link-->
     <script
     src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -33,34 +33,37 @@
 <body>
 
 <div class="container-fluid p-0">
-        <!--first child-->
-        <nav class="navbar bg-info navbar-expand-lg"> <!--bg-body-tertiary MAYBE NEED TO ADD-->
+        <nav class="navbar bg-info navbar-expand-lg">
             <div class="container-fluid justify-content-start">
               <h5 class="navbar-text fw-bold">Product List</h5>
-              <button><a href="index.php?add_product" id="add-product-btn" class="btn btn-outline-success me-2" type="button">ADD</a></button>
+            </div> 
+            <div class="container-fluid justify-content-end">
+              <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/addproduct">ADD</a></button>
+              <!--href="index.php?add_product" or "/add-product-->
             <form id="cards-form" action="code_for_deleting.php" method="post">
-              <button id="delete-product-btn" class="btn btn-outline-success me-2" type="submit" name="delete">MASS DELETE</button>
+              <button id="delete-product-btn" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
+              <!-- add for="..."-->
             </form>
             </div>
           </nav>
 </div>
 
-        <hr>
-
-      <div class="container">
+      <div class="container my-5">
         <form id="cards-form" action="code_for_deleting.php" method="post">
-        <div class="row">
+        <div class="row gy-3">
           <?php
           $file = new Products();
           $products = $file->getAllProducts();
           foreach($products as $product){
           ?>
-          <div class="col-md-3">
+          <div class="col-6 col-md-3">
             <!--<form id="cards-form" action="code_for_deleting.php" method="post">-->
-            <div class="card border border-dark" style="width: 18rem;">
-              <div>
+            <div class="card border border-dark">
+              <div class="px-3">
+              <label class="form-check-label">
                 <input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="<?php echo $product['sku']; ?>">
                 <!--<input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" value="<?php echo $product['sku']; ?>">-->
+              </label>
               </div>
                 <div class="card-body text-center">
                       <h5 class="card-title"><?php echo $product['sku']; ?></h5>
@@ -74,6 +77,12 @@
         </div>
         </form>
 </div>
+
+<footer class="fixed-bottom">
+        <div class="mx-5 py-3 text-center border-top border-2 border-primary">
+            Scandiweb Test assignment
+        </div>
+</footer>
 
 
 

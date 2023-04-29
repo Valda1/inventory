@@ -1,11 +1,19 @@
+/*a{
+    color: red !important;
+}*/
+
+/*a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+}*/
+
 /*.delete-checkbox{
     margin-top: 10px;
 }*/
 
 /*#DVD{
     display: none;
-}
+}*/
 
-#size{
+/*.myDiv{
     display: none;
 }*/

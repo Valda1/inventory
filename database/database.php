@@ -20,9 +20,24 @@ class Database{
             //$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $connect;
-            //return statement maybe
 
-            //$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+            $sql = "CREATE TABLE products(
+                sku VARCHAR(255) NOT NULL PRIMARY KEY,
+                name VARCHAR(100) NOT NULL,
+                price DOUBLE NOT NULL,
+                product_type VARCHAR NOT NULL,
+                attributes VARCHAR NOT NULL
+            ),
+
+            INSERT INTO products(sku, name, price, product_type, attributes) VALUES 
+            (JVG200123, Acme DISC, 1.00, DVD, 700),
+            (GGWP0007, War and Peace, 20.00, 2),
+            (TR120555, Chair, 40.00, 24x45x15)";
+
+            if(!sql){
+                die();
+            }
+
         }catch(PDOException $exception){
             $exception->getMessage();
             die();
