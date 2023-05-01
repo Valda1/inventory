@@ -1,6 +1,6 @@
 <?php
 
-class ProductsView extends Products{
+class ProductsView extends ProductController{
 
     public function showProduct($sku){
         $results = $this->getProduct($sku);

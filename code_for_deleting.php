@@ -2,10 +2,9 @@
 
 include 'database/database.php';
 include 'models/product.php';
-include 'models/products.php';
 include 'controllers/product_controller.php';
 
-if(isset($_POST['delete']) && isset($_POST['sku'])){
+if(isset($_POST['delete']) || isset($_POST['sku'])){
 
     echo "yes";
 }else{

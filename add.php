@@ -117,6 +117,27 @@
       </div>
       
 </form>
+
+<?php
+
+        if(!isset($_GET['save'])){
+          exit();
+        }else{
+          $save = $_GET['save'];
+
+          if($save == "empty"){
+            echo "<p class='error'>You have to fill in all the fields!</p>";
+            exit();
+          }elseif($save == "char"){
+            echo "<p class='error'>Incorrect input!</p>";
+            exit();
+          }elseif($save == "success"){
+            echo "<p class='error'>Your have added new product successfully!</p>";
+            exit();
+          }
+        }
+
+        ?>
 </div>
 
 <footer class="fixed-bottom">

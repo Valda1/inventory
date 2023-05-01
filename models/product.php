@@ -27,7 +27,14 @@ abstract class Product {
         $this->price = $price;
     }
 
-    private function emptyInput(){
+    abstract public function createProduct($sku, $name, $price);
+
+    abstract public function deleteProduct($sku);
+    
+
+
+
+    /*private function emptyInput(){
         $result;
         if(empty($this->sku || empty($this->name || empty($this->price)))){
             $result = false;
@@ -35,7 +42,7 @@ abstract class Product {
             $result = true;
         }
         return $result;
-    }
+    }*/
 
 
 }

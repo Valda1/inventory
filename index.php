@@ -1,6 +1,6 @@
 <?php
   include 'database/database.php';
-  include 'models/products.php';
+  include 'models/product.php';
   include 'controllers/product_controller.php';
   include 'view/products_view.php';
 ?>
@@ -52,7 +52,7 @@
         <form id="cards-form" action="code_for_deleting.php" method="post">
         <div class="row gy-3">
           <?php
-          $file = new Products();
+          $file = new ProductController();
           $products = $file->getAllProducts();
           foreach($products as $product){
           ?>
@@ -76,6 +76,7 @@
             <?php } ?>
         </div>
         </form>
+
 </div>
 
 <footer class="fixed-bottom">
