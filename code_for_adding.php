@@ -2,8 +2,17 @@
 
 include 'database/database.php';
 include 'models/product.php';
-include 'models/products.php';
 include 'controllers/product_controller.php';
+
+/*if(isset($_POST["save"])){
+    if(empty($sku) || empty($name) || empty($price)){
+        header("location: add.php?save=empty");
+        exit();
+    }else{
+        echo "error";
+    }
+
+}*/
 
 //if($_SERVER['REQUEST_METHOD'] == 'POST'){
 if(isset($_POST["save"])){
@@ -22,19 +31,28 @@ if(isset($_POST["save"])){
             }else{
                 //check sku validity in DB
                 //if not valid is taken
-                $duplicateSku = new Products();
-                $duplicateSku->checkSkuDuplicate($sku);
 
-                if($duplicateSku){
-                    header("location: add.php?save=taken");
-                    exit();
+                $add = new ProductController();
+                $add->createProduct($sku, $name, $price);
+                //header("location: index.php?error=none");
+                //$result = $duplicateSku;
+                /*if($result > 0){
+                    echo "there is a duplicate";
                 }else{
+                    echo "no duplicate";
+                }*/
+
+                /*if($duplicateSku->rowcount() > 0){
+                    //echo $duplicateSku;
+                    header("location: add.php?save=taken");
+                    exit();*/
+                /*}else{
                     $addition = new ProductController();
                     $addition->createProduct($sku, $name, $price);
                     //header("location: index.php?error=none");
                     header("location: add.php?save=success");
                     exit();
-                }
+                }*/
             }
            
         }

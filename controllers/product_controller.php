@@ -31,10 +31,18 @@ class ProductController extends Database{
     }
 
     public function createProduct($sku, $name, $price){
-        $query = "INSERT INTO products (sku, name, price) VALUES (?, ?, ?)";
-        $stmt = $this->connect()->prepare($query);
-        $stmt->execute([$sku, $name, $price]);
+        try{
+            $query = "INSERT INTO products (sku, name, price) VALUES (?, ?, ?)";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute([$sku, $name, $price]);
+
+        }catch(PDOException $e){
+            if($e->errorInfo[1] == 1062){
+                //$error = "<span class='text-danger'>This sku is already taken!</span>";
+                echo "<div class='alert alert-warning'>This sku is already taken!</div>";
+            }  
     }
+}
 
     public function deleteProduct($sku){
         $query = "DELETE FROM products WHERE sku = ?";
@@ -43,20 +51,26 @@ class ProductController extends Database{
     }
 
     public function checkSkuDuplicate($sku){
-        $query = "SELECT * FROM products WHERE sku = '$sku'";
-        //$stmt = $this->connect()->prepare($query);
-        //$stmt->execute();
-        //$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $results = mysql_query($query);
+        //try{
+            $query = "SELECT * FROM products WHERE sku = ?";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute([$sku]);
+            $count = $stmt->rowCount();
+            return $count;
+            //if($count > 0){
+            //$error = "<span>This sku number has already been taken!</span>";
+        
 
-        if(mysql_num_rows($results) > 0){
-            //return "This sku already exists! Enter another sku, please!";
-            //echo "This sku already exists! Enter another sku, please!";
-            return true;
+            /*}catch(PDOException $e){
+                if($e->errorInfo[1] == 1062){
+                    echo "<div class='alert alert-warning'>This sku is already taken!</div>";
+                }*/
+        }
+    
+        
+    
 
-        }else{
-            return false;
-    }
+
 
 
     /*public function createProduct($sku, $name, $price){
@@ -69,4 +83,3 @@ class ProductController extends Database{
 
 
     }
-}

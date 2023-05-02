@@ -33,7 +33,7 @@
         </div>
         <div class="container-fluid justify-content-end">
           <form>
-          <button id="save-product-btn" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
+          <button form="product-form" id="save-product-btn" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
           </form>
           <button id="cancel-btn" class="btn btn-success me-2" type="button">Cancel</button>
         </div>
@@ -126,7 +126,8 @@
           $save = $_GET['save'];
 
           if($save == "empty"){
-            echo "<p class='error'>You have to fill in all the fields!</p>";
+            //echo "<p class='error'>You have to fill in all the fields!</p>";
+            echo "<p class='alert alert-warning'>You have to fill in all the fields!</p>";
             exit();
           }elseif($save == "char"){
             echo "<p class='error'>Incorrect input!</p>";
