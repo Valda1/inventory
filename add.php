@@ -20,7 +20,7 @@
      <!--css link-->
      <link rel="stylesheet" href="style.css">
      <!--ajax link-->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
 
 
 </head>
@@ -41,18 +41,19 @@
 </div>
 
 <div class="container mt-4">
-<form id="product-form" action="code_for_adding.php" method="post">
+<form id="product-form" name="product-form" action="code_for_adding.php" method="post" required>
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
         <!--<div class="input-group mb-3">-->
           <div class="col-sm-2 col-lg-1">
-              <label for="sku" class="col-form-label">SKU</label>
+              <label id="sku" name="sku" for="sku" class="col-form-label">SKU</label>
               <!--<span class="input-group-text" id="sku">SKU</span>-->
           </div>
 
           <div class="col-sm-auto position-relative">
               <!--<input required type="text" id="sku" name="sku" class="form-control" value="<?= $product->data['sku'] ?? '' ?>">-->
-              <input type="text" class="form-control" aria-describedby="basic-addon1" name="sku">
+              <input type="text" class="form-control" placeholder="Enter the SKU of the product" onsubmit="return validateForm()" aria-describedby="basic-addon1" name="sku">
+              <div class="input-feedback" id="sku=input-feedback"></div>
           </div>
       </div>
 
@@ -64,7 +65,8 @@
         </div>
         <!--<span class="input-group-text" id="name">Name</span>-->
         <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" aria-describedby="basic-addon1" name="name">
+          <input type="text" class="form-control" placeholder="Enter the name of the product" aria-describedby="basic-addon1" name="name">
+          <div class="input-feedback" id="name-input-feedback"></div>
         </div>
       </div>
 
@@ -74,7 +76,8 @@
         </div>
         <!--<span class="input-group-text" id="price">Price ($)</span>-->
         <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" aria-describedby="basic-addon1" name="price">
+          <input type="text" class="form-control" placeholder="Enter the price of the product" aria-describedby="basic-addon1" name="price">
+          <div class="input-feedback" id="price-input-feedback"></div>
         </div>
       </div>
   </fieldset>
@@ -87,40 +90,90 @@
         <!--<label for="productType">Product Type</label>-->
     </div>   
     <div class="col-sm-auto"> 
-        <select class="form-control form-select type" id="type" name="type" required><!-- do i need form control-->
-          <option value="0">Type Switcher</option>
+        <select onchange="changeType()" class="form-control form-select type" id="type" name="type"><!-- do i need form control-->
+          <!--<option value="default" selected disabled hidden>Type Switcher</option>-->
+          <option>Type Switcher</option>
           <option value="1">DVD-disc</option>
           <option value="2">Book</option>
           <option value="3">Furniture</option>
         </select>
     </div>    
       </div>
+
+  <div id="attributes" class="mb-5">
+    <fieldset>
+
+    <div class="row mb-3 g-3 align-items-center myDiv 1" id="showDVD">
+        <div class="col-sm-2 col-lg-1">
+          <label for="size" class="col-form-label">Size (MB)</label>
+        </div>
+        <!--<span class="input-group-text" id="size">Size</span>-->
+        <div class="col-sm-auto position-relative">
+          <input type="text" class="form-control" placeholder="Enter the size of the product" aria-describedby="basic-addon1" name="size">
+          <div class="input-feedback" id="size-input-feedback"></div>
+        </div>
+      </div>
+</fieldset>
+
+<fieldset>
+
+      <div class="row mb-3 g-3 align-items-center myDiv 2" id="showBook">
+        <div class="col-sm-2 col-lg-1">
+          <label for="weight" class="col-form-label">Weight (KG)</label>
+        </div>
+        <div class="col-sm-auto position-relative">
+          <input type="text" class="form-control" placeholder="Enter the weight of the book" aria-describedby="basic-addon1" name="weight">
+          <div class="input-feedback" id="weight-input-feedback"></div>
+        </div>
+      </div>
+</fieldset>
+
+<fieldset>
+
+      <div class="row mb-3 g-3 align-items-center myDiv 3" id="showFurniture">
+        <div class="col-sm-2 col-lg-1">
+          <label for="height" class="col-form-label">Height (CM)</label>
+        </div>
+        <div class="col-sm-auto position-relative">
+          <input type="text" class="form-control" placeholder="Enter the height of the furniture" aria-describedby="basic-addon1" name="height">
+          <div class="input-feedback" id="weight-input-feedback"></div>
+        </div>
+      </div>
+
+      <div class="row mb-3 g-3 align-items-center myDiv 3" id="showFurniture">
+        <div class="col-sm-2 col-lg-1">
+          <label for="width" class="col-form-label">Width (CM)</label>
+        </div>
+        <div class="col-sm-auto position-relative">
+          <input type="text" class="form-control" placeholder="Enter the width of the furniture" aria-describedby="basic-addon1" name="width">
+          <div class="input-feedback" id="width-input-feedback"></div>
+        </div>
+      </div>
+
+      <div class="row mb-3 g-3 align-items-center myDiv 3" id="showFurniture">
+        <div class="col-sm-2 col-lg-1">
+          <label for="length" class="col-form-label">Length (CM)</label>
+        </div>
+        <div class="col-sm-auto position-relative">
+          <input type="text" class="form-control" placeholder="Enter the length of the furniture" aria-describedby="basic-addon1" name="length">
+          <div class="input-feedback" id="length-input-feedback"></div>
+        </div>
+      </div>
+
+      <!-- footer problem-->
+
+</fieldset>
+
+  
   </div>
-
-      <div class="input-group mb-3 myDiv" id="showDVD">
-        <span class="input-group-text" id="size">Size (MB)</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1" name="size">
-      </div>
-
-      <div class="input-group mb-3 myDiv" id="showFurniture">
-        <span class="input-group-text" id="height">Height (CM)</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1" name="height">
-        <span class="input-group-text" id="width">Width (CM)</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1" name="width">
-        <span class="input-group-text" id="lenght">Lenght (CM)</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1" name="length">
-      </div>
-
-      <div class="input-group mb-3 myDiv" id="showBook">
-        <span class="input-group-text" id="weight">Weight (KG)</span>
-        <input type="text" class="form-control" aria-describedby="basic-addon1" name="weight">
-      </div>
       
 </form>
 
+</div>
+
 <?php
 
-        if(!isset($_GET['save'])){
+        /*if(!isset($_GET['save'])){
           exit();
         }else{
           $save = $_GET['save'];
@@ -136,7 +189,7 @@
             echo "<p class='error'>Your have added new product successfully!</p>";
             exit();
           }
-        }
+        }*/
 
         ?>
 </div>

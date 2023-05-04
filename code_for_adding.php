@@ -20,7 +20,10 @@ if(isset($_POST["save"])){
         $name = $_POST["name"];
         $price = $_POST["price"];
 
-        if(empty($sku) || empty($name) || empty($price)){
+        $add = new ProductController();
+        $add->createProduct($sku, $name, $price);
+
+        /*if(empty($sku) || empty($name) || empty($price)){
             header("location: add.php?save=empty");
             exit();
         }else{
@@ -53,9 +56,9 @@ if(isset($_POST["save"])){
                     header("location: add.php?save=success");
                     exit();
                 }*/
-            }
+           // }
            
-        }
+        //}
     }else{
         header("location: add.php");
         exit();
