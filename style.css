@@ -17,3 +17,9 @@
 .myDiv{
     display: none;
 }
+
+.error{
+    background-color: red;
+    box-shadow: 0 0 5px red;
+    opacity: .5;
+}

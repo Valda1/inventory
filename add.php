@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  include 'database/database.php';
+  //include 'models/product.php';
+  include 'controllers/product_controller.php';
+  //include 'view/products_view.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +51,16 @@
 </div>
 
 <div class="container mt-4">
-<form id="product-form" name="product-form" action="code_for_adding.php" method="post" required>
+<form id="product-form" name="product-form" action="code_for_adding.php" method="post">
+
+<?php
+  if(isset($_SESSION["error"])){
+    $error = $_SESSION["error"];
+    echo "<div class='col-sm-3 text-center error fw-bold'><p>$error</p></div>";
+  }
+
+  ?>
+
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
         <!--<div class="input-group mb-3">-->
@@ -52,8 +71,9 @@
 
           <div class="col-sm-auto position-relative">
               <!--<input required type="text" id="sku" name="sku" class="form-control" value="<?= $product->data['sku'] ?? '' ?>">-->
-              <input type="text" class="form-control" placeholder="Enter the SKU of the product" onsubmit="return validateForm()" aria-describedby="basic-addon1" name="sku">
-              <div class="input-feedback" id="sku=input-feedback"></div>
+              <input id="input-sku" type="text" class="form-control" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
+              <!--<p class="error sku-error" name="sku-error"><?php echo $sku_error; ?></p>-->
+              <!--<div class="input-feedback" id="sku=input-feedback"></div>-->
           </div>
       </div>
 
@@ -65,8 +85,8 @@
         </div>
         <!--<span class="input-group-text" id="name">Name</span>-->
         <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the name of the product" aria-describedby="basic-addon1" name="name">
-          <div class="input-feedback" id="name-input-feedback"></div>
+          <input id="input-name" type="text" class="form-control" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
+          <!--<p class="error name-error" name="name-error"><?php echo $name_error; ?></p>-->
         </div>
       </div>
 
@@ -76,12 +96,11 @@
         </div>
         <!--<span class="input-group-text" id="price">Price ($)</span>-->
         <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the price of the product" aria-describedby="basic-addon1" name="price">
-          <div class="input-feedback" id="price-input-feedback"></div>
+          <input id="input-price" type="text" class="form-control" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
+          <!--<p class="error price-error" name="price-error"><?php echo $price_error; ?></p>-->
         </div>
       </div>
   </fieldset>
-
 
   <div class="row mb-5 g-3 align-items-center">
     <div class="col-sm-2 col-lg-1">
@@ -93,9 +112,9 @@
         <select onchange="changeType()" class="form-control form-select type" id="type" name="type"><!-- do i need form control-->
           <!--<option value="default" selected disabled hidden>Type Switcher</option>-->
           <option>Type Switcher</option>
-          <option value="1">DVD-disc</option>
-          <option value="2">Book</option>
-          <option value="3">Furniture</option>
+          <option value="DVD-disc">DVD-disc</option>
+          <option value="Book">Book</option>
+          <option value="Furniture">Furniture</option>
         </select>
     </div>    
       </div>
@@ -166,6 +185,7 @@
 
   
   </div>
+
       
 </form>
 
@@ -180,7 +200,8 @@
 
           if($save == "empty"){
             //echo "<p class='error'>You have to fill in all the fields!</p>";
-            echo "<p class='alert alert-warning'>You have to fill in all the fields!</p>";
+            //echo "<p class='alert alert-warning'>You have to fill in all the fields!</p>";
+            echo "<div class='alert'>You have to fill in all the fields!</div>";
             exit();
           }elseif($save == "char"){
             echo "<p class='error'>Incorrect input!</p>";
@@ -206,3 +227,8 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<?php
+  unset($_SESSION["error"]);
+
+?>

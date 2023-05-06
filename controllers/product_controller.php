@@ -6,11 +6,6 @@
 
 class ProductController extends Database{
 
-    /*function __construct()
-{
-    parent::__construct($sku, $name, $price);
-}*/
-
     public function getProduct($sku){
         $query = "SELECT * FROM products WHERE sku = ?";
         $stmt = $this->connect()->prepare($query);
@@ -30,11 +25,11 @@ class ProductController extends Database{
 
     }
 
-    public function createProduct($sku, $name, $price){
+    public function createProduct($sku, $name, $price, $productType){
         try{
-            $query = "INSERT INTO products (sku, name, price) VALUES (?, ?, ?)";
+            $query = "INSERT INTO products (sku, name, price, product_type) VALUES (?, ?, ?, ?)";
             $stmt = $this->connect()->prepare($query);
-            $stmt->execute([$sku, $name, $price]);
+            $stmt->execute([$sku, $name, $price, $productType]);
 
         }catch(PDOException $e){
             if($e->errorInfo[1] == 1062){

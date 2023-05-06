@@ -1,27 +1,44 @@
 <?php
 
+session_start();
+
 include 'database/database.php';
 include 'models/product.php';
 include 'controllers/product_controller.php';
 
-/*if(isset($_POST["save"])){
-    if(empty($sku) || empty($name) || empty($price)){
-        header("location: add.php?save=empty");
-        exit();
-    }else{
-        echo "error";
-    }
-
-}*/
-
-//if($_SERVER['REQUEST_METHOD'] == 'POST'){
 if(isset($_POST["save"])){
+
         $sku = $_POST["sku"];
         $name = $_POST["name"];
         $price = $_POST["price"];
+        $productType = $_POST["type"];
 
-        $add = new ProductController();
-        $add->createProduct($sku, $name, $price);
+        //echo $productType;
+
+        $errorEmpty = "Please fill in all the fields!";
+        $errorName = "Please enter a valid name!";
+        $errorPrice = "Please enter a valid price!";
+        //$errors = array();
+
+        if(empty($sku) || empty($name) || empty($price) || empty($productType)){
+            $_SESSION["error"] = $errorEmpty;
+            header("location: add.php");
+            //exit();
+        }elseif(!preg_match("/^[a-zA-Z]*$/", $name)){
+            $_SESSION["error"] = $errorName;
+            header("location: add.php");
+            //exit();
+        }elseif(!is_numeric($price)){
+            $_SESSION["error"] = $errorPrice;
+            header("location: add.php");
+            //exit();
+        }else{
+            $add = new ProductController();
+            $add->createProduct($sku, $name, $price, $productType);
+            header("location: index.php");
+        }
+
+        
 
         /*if(empty($sku) || empty($name) || empty($price)){
             header("location: add.php?save=empty");
@@ -63,3 +80,15 @@ if(isset($_POST["save"])){
         header("location: add.php");
         exit();
     }
+
+
+
+
+
+
+
+
+
+
+
+
