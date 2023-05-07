@@ -66,14 +66,10 @@
         <!--<div class="input-group mb-3">-->
           <div class="col-sm-2 col-lg-1">
               <label id="sku" name="sku" for="sku" class="col-form-label">SKU</label>
-              <!--<span class="input-group-text" id="sku">SKU</span>-->
           </div>
 
           <div class="col-sm-auto position-relative">
-              <!--<input required type="text" id="sku" name="sku" class="form-control" value="<?= $product->data['sku'] ?? '' ?>">-->
               <input id="input-sku" type="text" class="form-control" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
-              <!--<p class="error sku-error" name="sku-error"><?php echo $sku_error; ?></p>-->
-              <!--<div class="input-feedback" id="sku=input-feedback"></div>-->
           </div>
       </div>
 
@@ -83,10 +79,8 @@
         <div class="col-sm-2 col-lg-1">
           <label for="name" class="col-form-label">Name</label>
         </div>
-        <!--<span class="input-group-text" id="name">Name</span>-->
         <div class="col-sm-auto position-relative">
           <input id="input-name" type="text" class="form-control" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
-          <!--<p class="error name-error" name="name-error"><?php echo $name_error; ?></p>-->
         </div>
       </div>
 
@@ -94,10 +88,8 @@
         <div class="col-sm-2 col-lg-1">
           <label for="price" class="col-form-label">Price ($)</label>
         </div>
-        <!--<span class="input-group-text" id="price">Price ($)</span>-->
         <div class="col-sm-auto position-relative">
           <input id="input-price" type="text" class="form-control" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
-          <!--<p class="error price-error" name="price-error"><?php echo $price_error; ?></p>-->
         </div>
       </div>
   </fieldset>
@@ -109,9 +101,9 @@
         <!--<label for="productType">Product Type</label>-->
     </div>   
     <div class="col-sm-auto"> 
-        <select onchange="changeType()" class="form-control form-select type" id="type" name="type"><!-- do i need form control-->
+        <select class="form-control form-select type" id="type" name="type"><!-- do i need form control-->
           <!--<option value="default" selected disabled hidden>Type Switcher</option>-->
-          <option>Type Switcher</option>
+          <option value="">Type Switcher</option>
           <option value="DVD-disc">DVD-disc</option>
           <option value="Book">Book</option>
           <option value="Furniture">Furniture</option>
@@ -122,71 +114,61 @@
   <div id="attributes" class="mb-5">
     <fieldset>
 
-    <div class="row mb-3 g-3 align-items-center myDiv 1" id="showDVD">
+    <div class="row mb-3 g-3 align-items-center myDiv DVD-disc" id="showDVD">
         <div class="col-sm-2 col-lg-1">
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
-        <!--<span class="input-group-text" id="size">Size</span>-->
-        <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the size of the product" aria-describedby="basic-addon1" name="size">
-          <div class="input-feedback" id="size-input-feedback"></div>
+        <div class="col-sm-2 position-relative">
+          <input type="text" class="form-control" placeholder="Enter the size" aria-describedby="basic-addon1" name="data[]" value="size">
         </div>
       </div>
 </fieldset>
 
 <fieldset>
 
-      <div class="row mb-3 g-3 align-items-center myDiv 2" id="showBook">
+      <div class="row mb-3 g-3 align-items-center myDiv Book" id="showBook">
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
-        <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the weight of the book" aria-describedby="basic-addon1" name="weight">
-          <div class="input-feedback" id="weight-input-feedback"></div>
+        <div class="col-sm-2 position-relative">
+          <input type="text" class="form-control" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
         </div>
       </div>
 </fieldset>
 
 <fieldset>
 
-      <div class="row mb-3 g-3 align-items-center myDiv 3" id="showFurniture">
+      <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
-        <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the height of the furniture" aria-describedby="basic-addon1" name="height">
-          <div class="input-feedback" id="weight-input-feedback"></div>
+        <div class="col-sm-2 position-relative">
+          <input type="text" class="form-control" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
         </div>
       </div>
 
-      <div class="row mb-3 g-3 align-items-center myDiv 3" id="showFurniture">
+      <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
         <div class="col-sm-2 col-lg-1">
           <label for="width" class="col-form-label">Width (CM)</label>
         </div>
-        <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the width of the furniture" aria-describedby="basic-addon1" name="width">
-          <div class="input-feedback" id="width-input-feedback"></div>
+        <div class="col-sm-2 position-relative">
+          <input type="text" class="form-control" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
         </div>
       </div>
 
-      <div class="row mb-3 g-3 align-items-center myDiv 3" id="showFurniture">
+      <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
         <div class="col-sm-2 col-lg-1">
           <label for="length" class="col-form-label">Length (CM)</label>
         </div>
-        <div class="col-sm-auto position-relative">
-          <input type="text" class="form-control" placeholder="Enter the length of the furniture" aria-describedby="basic-addon1" name="length">
-          <div class="input-feedback" id="length-input-feedback"></div>
+        <div class="col-sm-2 position-relative">
+          <input type="text" class="form-control" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
         </div>
       </div>
 
-      <!-- footer problem-->
-
 </fieldset>
-
-  
+ 
   </div>
-
-      
+   
 </form>
 
 </div>

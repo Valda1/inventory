@@ -12,15 +12,17 @@ if(isset($_POST["save"])){
         $name = $_POST["name"];
         $price = $_POST["price"];
         $productType = $_POST["type"];
+        $size = $_POST["data"]["size"];
+        $weight = $_POST["weight"];
 
-        //echo $productType;
+        echo $size;
 
-        $errorEmpty = "Please fill in all the fields!";
-        $errorName = "Please enter a valid name!";
-        $errorPrice = "Please enter a valid price!";
+        /*$errorEmpty = "Please, submit required data!";
+        $errorName = "Please, provide the data of indicated type!";
+        $errorPrice = "Please, provide the data of indicated type!";
         //$errors = array();
 
-        if(empty($sku) || empty($name) || empty($price) || empty($productType)){
+        if(empty($sku) || empty($name) || empty($price) || empty($productType) || empty($data)){
             $_SESSION["error"] = $errorEmpty;
             header("location: add.php");
             //exit();
@@ -34,9 +36,9 @@ if(isset($_POST["save"])){
             //exit();
         }else{
             $add = new ProductController();
-            $add->createProduct($sku, $name, $price, $productType);
+            $add->createProduct($sku, $name, $price, $productType, $size, $weight);
             header("location: index.php");
-        }
+        }*/
 
         
 

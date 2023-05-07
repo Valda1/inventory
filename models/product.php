@@ -9,45 +9,33 @@ abstract class Product {
     public string $name;
     public float $price;
     public string $productType;
-    public string $attributes;
-    public array $validTypes = ['DVD', 'Furniture', 'Book'];
+    //public string $data;
+    public array $data = ['size', 'weight', 'width', 'lenght', 'height'];
+    //$attributes = array();
+    //public array $validTypes = ['DVD', 'Furniture', 'Book'];
     public int $size; //for DVD
     public int $height; //for furniture
     public int $width; //for furniture
     public int $lenght; //for furniture
     public int $weight; //for book
 
-    /*public string $sku_error;
-    public string $name_error;
-    public string $price_error;*/
-
     //public string $value;
     //public static array $validTypes = ['DVD', 'Book', 'Furniture'];
     //public array $data;
 
-    public function __construct($sku, $name, $price, $productType){
+    public function __construct($sku, $name, $price, $productType, $data){
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
         $this->productType = $productType;
+        $this->data = $data;
+        //$this->size = $size;
+        //$this->weight = $weight;
     }
 
-    abstract public function createProduct($sku, $name, $price, $productType);
+    abstract public function createProduct($sku, $name, $price, $productType, $data);
 
     abstract public function deleteProduct($sku);
-    
-
-
-
-    /*private function emptyInput(){
-        $result;
-        if(empty($this->sku || empty($this->name || empty($this->price)))){
-            $result = false;
-        }else{
-            $result = true;
-        }
-        return $result;
-    }*/
 
 
 }

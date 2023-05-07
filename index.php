@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include 'database/database.php';
   include 'models/product.php';
   include 'controllers/product_controller.php';

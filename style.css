@@ -19,7 +19,7 @@
 }
 
 .error{
-    background-color: red;
+    //background-color: red;
     box-shadow: 0 0 5px red;
-    opacity: .5;
+    //opacity: .5;
 }

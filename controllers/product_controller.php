@@ -25,11 +25,11 @@ class ProductController extends Database{
 
     }
 
-    public function createProduct($sku, $name, $price, $productType){
+    public function createProduct($sku, $name, $price, $productType, $data){
         try{
-            $query = "INSERT INTO products (sku, name, price, product_type) VALUES (?, ?, ?, ?)";
+            $query = "INSERT INTO products (sku, name, price, product_type, data) VALUES (?, ?, ?, ?, ?)";
             $stmt = $this->connect()->prepare($query);
-            $stmt->execute([$sku, $name, $price, $productType]);
+            $stmt->execute([$sku, $name, $price, $productType, $data]);
 
         }catch(PDOException $e){
             if($e->errorInfo[1] == 1062){
