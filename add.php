@@ -119,7 +119,7 @@
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
         <div class="col-sm-2 position-relative">
-          <input type="text" class="form-control" placeholder="Enter the size" aria-describedby="basic-addon1" name="data[]" value="size">
+          <input type="text" class="form-control" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
         </div>
       </div>
 </fieldset>
