@@ -1,9 +1,13 @@
 <?php
   session_start();
+
+  //include 'includes/autoloader.php';
+  
   include 'database/database.php';
   include 'models/product.php';
-  include 'controllers/product_controller.php';
   include 'view/products_view.php';
+  include 'controllers/product_controller.php';
+  
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +57,13 @@
         <form id="cards-form" action="code_for_deleting.php" method="post">
         <div class="row gy-3">
           <?php
-          $file = new ProductController();
+          //$products = new ProductsView();
+          //$products->showAllProducts();
+          $file = new Database();
           $products = $file->getAllProducts();
+          
+          //$file = new ProductsView();
+          //$products = $file->showAllProducts();
           foreach($products as $product){
           ?>
           <div class="col-6 col-md-3">

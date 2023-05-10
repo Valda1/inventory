@@ -1,6 +1,8 @@
 <?php
 
-class ProductsView extends ProductController{
+require_once 'database/database.php';
+
+class ProductsView{
 
     public function showProduct($sku){
         $results = $this->getProduct($sku);
@@ -10,7 +12,11 @@ class ProductsView extends ProductController{
     }
 
     public function showAllProducts(){
-        $products = $this->getAllProducts();
+        $DB = new Database();
+        $products = $DB->getAllProducts();
+
+
+        //$products = $this->getAllProducts();
 
         foreach($products as $product) {
             

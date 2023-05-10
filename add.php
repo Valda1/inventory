@@ -115,6 +115,9 @@
     <fieldset>
 
     <div class="row mb-3 g-3 align-items-center myDiv DVD-disc" id="showDVD">
+      <div class="row mb-1">
+          <legend>Please, provide size:</legend>
+      </div>
         <div class="col-sm-2 col-lg-1">
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
@@ -127,6 +130,9 @@
 <fieldset>
 
       <div class="row mb-3 g-3 align-items-center myDiv Book" id="showBook">
+        <div class="row mb-1">
+          <legend>Please, provide weight:</legend>
+        </div>
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
@@ -139,6 +145,9 @@
 <fieldset>
 
       <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
+        <div class="row mb-1">
+          <legend>Please, provide dimentions:</legend>
+        </div>
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>

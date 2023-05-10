@@ -4,6 +4,9 @@ session_start();
 
 include 'database/database.php';
 include 'models/product.php';
+include 'models/product_types/DVD.php';
+include 'models/product_types/book.php';
+include 'models/product_types/furniture.php';
 include 'controllers/product_controller.php';
 
 if(isset($_POST["save"])){
@@ -19,37 +22,53 @@ if(isset($_POST["save"])){
         $width = $_POST["width"];
 
         $errorEmpty = "Please, submit required data!";
+        $errorSku = "This SKU already exists! Please, provide another SKU!";
         $errorName = "Please, provide the data of indicated type!";
         $errorPrice = "Please, provide the data of indicated type!";
+
+        $DB = new Database();
+        $duplicateError = $DB->checkSkuDuplicate($sku);
+        if($duplicateError > 0){
+            $_SESSION["error"] = $errorSku;
+        }
 
         if($productType == 'DVD-disc' && empty($size)){
             $_SESSION["error"] = $errorEmpty;
             header("location: add.php");
         }elseif($productType == 'DVD-disc' && !empty($size)){
-            $add = new ProductController();
-            $add->createDVD($sku, $name, $price, $productType, $size);
-            header("location: index.php?error=none");
-        }
+            //$DVD = new ProductController();
+            //$DVD->createDVD();
 
-        if($productType == 'Book' && empty($weight)){
+            $DVD = new DVD($sku, $name, $price, $productType, $size);
+            $DVD->setProduct($sku, $name, $price, $productType, $size);
+            /*$product = new Product('DVD');
+            //$product->
+
+
+            $DVD = new DVD();
+            $DVD->createProduct();
+            $DVD->createDVD();*/
+
+
+            //$add = new ProductController();
+            //$add->createDVD($sku, $name, $price, $productType, $size);
+            header("location: index.php?error=none");
+        }elseif($productType == 'Book' && empty($weight)){
             $_SESSION["error"] = $errorEmpty;
             header("location: add.php");
         }elseif($productType == 'Book' && !empty($weight)){
-            $add = new ProductController();
-            $add->createBook($sku, $name, $price, $productType, $weight);
+            $book = new Book($sku, $name, $price, $productType, $weight);
+            $book->setProduct($sku, $name, $price, $productType, $weight);
             header("location: index.php?error=none");
-        }
-
-        if($productType == 'Furniture' && empty($height) || empty($length) || empty($width)){
+        }elseif($productType == 'Furniture' && empty($height) || empty($length) || empty($width)){
             $_SESSION["error"] = $errorEmpty;
             header("location: add.php");
         }elseif($productType == 'Furniture' && !empty($height) || !empty($length) || !empty($width)){
-            $add = new ProductController();
-            $add->createFurniture($sku, $name, $price, $productType, $height, $length, $width);
+            $furniture = new Furniture($sku, $name, $price, $productType, $height, $length, $width);
+            $furniture->setProduct($sku, $name, $price, $productType, $height, $length, $width);
+            //header("location: add.php");
             header("location: index.php?error=none");
         }
-
-        
 
         /*if(empty($sku) || empty($name) || empty($price)){
             header("location: add.php?save=empty");

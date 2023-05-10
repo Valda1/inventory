@@ -1,19 +1,17 @@
 <?php
 
-//namespace task\core;
-
-//use task\models\Product;
+//namespace database;
 //use PDO;
 
 class Database{
 
-    //private PDO $connect;
+    private PDO $connect;
     private $host = "localhost";
     private $username = "root";
     private $password = "";
     private $db = "store";
 
-    protected function connect(){
+    public function connect(){
         try{
             $connect = new PDO("mysql:host=$this->host;dbname=$this->db", $this->username, $this->password);
 
@@ -21,7 +19,7 @@ class Database{
             $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $connect;
 
-            $sql = "CREATE TABLE products(
+            /*$sql = "CREATE TABLE products(
                 sku VARCHAR(255) NOT NULL PRIMARY KEY,
                 name VARCHAR(100) NOT NULL,
                 price DOUBLE NOT NULL,
@@ -36,7 +34,7 @@ class Database{
 
             if(!sql){
                 die();
-            }
+            }*/
 
         }catch(PDOException $exception){
             $exception->getMessage();
@@ -44,6 +42,47 @@ class Database{
         }
     }
 
+    public function getProduct($sku){
+        $query = "SELECT * FROM products WHERE sku = ?";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
+    public function getAllProducts(){
+        $query = "SELECT * FROM products";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+
+    }
+
+    public function deleteProduct($sku){
+        $query = "DELETE FROM products WHERE sku = ?";
+        $stmt = $this->connect()->prepare($query);
+        $stmt->execute([$sku]);
+    }
+
+    public function checkSkuDuplicate($sku){
+        try{
+            $query = "SELECT * FROM products WHERE sku = ?";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute([$sku]);
+            $count = $stmt->rowCount();
+            return $count;
+            //if($count > 0){
+            //$error = "<span>This sku number has already been taken!</span>";
+        
+
+            }catch(PDOException $e){
+                $e->getMessage();
+            }
+
+}
 }
 
     /*public function read($query){
