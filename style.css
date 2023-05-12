@@ -1,25 +1,13 @@
-/*a{
-    color: red !important;
-}*/
-
-/*a:link, a:visited, a:hover, a:active{
-    text-decoration: none;
-}*/
-
-/*.delete-checkbox{
-    margin-top: 10px;
-}*/
-
-/*#DVD{
-    display: none;
-}*/
-
 .myDiv{
     display: none;
 }
 
 .error{
-    //background-color: red;
-    box-shadow: 0 0 5px red;
-    //opacity: .5;
+    background-color: #ff6242;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
 }

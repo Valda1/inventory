@@ -36,6 +36,8 @@
 </head>
 <body>
 
+<header>
+
 <div class="container-fluid p-0">
     <nav class="navbar bg-info navbar-expand-lg">
         <div class="container-fluid justify-content-start">
@@ -49,6 +51,7 @@
         </div>
       </nav>
 </div>
+</header>
 
 <div class="container mt-4">
 <form id="product-form" name="product-form" action="code_for_adding.php" method="post">
@@ -56,7 +59,7 @@
 <?php
   if(isset($_SESSION["error"])){
     $error = $_SESSION["error"];
-    echo "<div class='col-sm-3 text-center error fw-bold'><p>$error</p></div>";
+    echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
   }
 
   ?>
@@ -69,7 +72,7 @@
           </div>
 
           <div class="col-sm-auto position-relative">
-              <input id="input-sku" type="text" class="form-control" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
+              <input class="border border-primary rounded" id="input-sku" type="text" class="form-control" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
           </div>
       </div>
 
@@ -80,7 +83,7 @@
           <label for="name" class="col-form-label">Name</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="input-name" type="text" class="form-control" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
+          <input class="border border-primary rounded" id="input-name" type="text" class="form-control" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
         </div>
       </div>
 
@@ -89,7 +92,7 @@
           <label for="price" class="col-form-label">Price ($)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="input-price" type="text" class="form-control" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
+          <input class="border border-primary rounded" id="input-price" type="number" min="0.01" step="0.01" class="form-control" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
         </div>
       </div>
   </fieldset>
@@ -101,7 +104,7 @@
         <!--<label for="productType">Product Type</label>-->
     </div>   
     <div class="col-sm-auto"> 
-        <select class="form-control form-select type" id="type" name="type"><!-- do i need form control-->
+        <select class="form-control form-select type border border-primary rounded" id="type" name="type"><!-- do i need form control-->
           <!--<option value="default" selected disabled hidden>Type Switcher</option>-->
           <option value="">Type Switcher</option>
           <option value="DVD-disc">DVD-disc</option>
@@ -116,13 +119,13 @@
 
     <div class="row mb-3 g-3 align-items-center myDiv DVD-disc" id="showDVD">
       <div class="row mb-1">
-          <legend>Please, provide size:</legend>
+          <legend><em>Please, provide size:</em></legend>
       </div>
         <div class="col-sm-2 col-lg-1">
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
         <div class="col-sm-2 position-relative">
-          <input type="text" class="form-control" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
+          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
         </div>
       </div>
 </fieldset>
@@ -131,13 +134,13 @@
 
       <div class="row mb-3 g-3 align-items-center myDiv Book" id="showBook">
         <div class="row mb-1">
-          <legend>Please, provide weight:</legend>
+          <legend><em>Please, provide weight:</em></legend>
         </div>
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
         <div class="col-sm-2 position-relative">
-          <input type="text" class="form-control" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
+          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
         </div>
       </div>
 </fieldset>
@@ -146,13 +149,13 @@
 
       <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
         <div class="row mb-1">
-          <legend>Please, provide dimentions:</legend>
+          <legend><em>Please, provide dimentions:</em></legend>
         </div>
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
         <div class="col-sm-2 position-relative">
-          <input type="text" class="form-control" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
+          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
         </div>
       </div>
 
@@ -161,7 +164,7 @@
           <label for="width" class="col-form-label">Width (CM)</label>
         </div>
         <div class="col-sm-2 position-relative">
-          <input type="text" class="form-control" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
+          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
         </div>
       </div>
 
@@ -170,7 +173,7 @@
           <label for="length" class="col-form-label">Length (CM)</label>
         </div>
         <div class="col-sm-2 position-relative">
-          <input type="text" class="form-control" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
+          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
         </div>
       </div>
 
@@ -206,7 +209,8 @@
         ?>
 </div>
 
-<footer class="fixed-bottom">
+<!--<footer id="footer" class="mt-auto pt-5 mt-5">-->
+<footer class="mt-auto">
         <div class="mx-5 py-3 text-center border-top border-2 border-primary">
             Scandiweb Test assignment
         </div>

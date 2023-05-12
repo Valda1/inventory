@@ -36,6 +36,7 @@
 </head>
 
 <body>
+<header>
 
 <div class="container-fluid p-0">
         <nav class="navbar bg-info navbar-expand-lg">
@@ -43,7 +44,7 @@
               <h5 class="navbar-text fw-bold">Product List</h5>
             </div> 
             <div class="container-fluid justify-content-end">
-              <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/addproduct">ADD</a></button>
+              <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/add-product">ADD</a></button>
               <!--href="index.php?add_product" or "/add-product-->
             <form id="cards-form" action="code_for_deleting.php" method="post">
               <button id="delete-product-btn" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
@@ -52,6 +53,8 @@
             </div>
           </nav>
 </div>
+
+</header>
 
       <div class="container my-5">
         <form id="cards-form" action="code_for_deleting.php" method="post">
@@ -67,22 +70,18 @@
           foreach($products as $product){
           ?>
           <div class="col-6 col-md-3">
-            <!--<form id="cards-form" action="code_for_deleting.php" method="post">-->
             <div class="card border border-dark">
               <div class="px-3">
               <label class="form-check-label">
                 <input form="cards-form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="<?php echo $product['sku']; ?>">
-                <!--<input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" value="<?php echo $product['sku']; ?>">-->
-                <!--<input class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="<?php echo $product['sku']; ?>">-->
               </label>
               </div>
                 <div class="card-body text-center">
                       <h5 class="card-title"><?php echo $product['sku']; ?></h5>
                       <h6 class="card-text"><?php echo $product['name']; ?></h6>
-                      <h6 class="card-text"><?php echo $product['price']; ?></h6>
+                      <h6 class="card-text"><?php echo number_format($product['price'], 2); ?></h6>
                 </div>
             </div>
-          <!--</form>-->
           </div>
             <?php } ?>
         </div>
@@ -90,7 +89,7 @@
 
 </div>
 
-<footer class="fixed-bottom">
+<footer class="mt-auto">
         <div class="mx-5 py-3 text-center border-top border-2 border-primary">
             Scandiweb Test assignment
         </div>
