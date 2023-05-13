@@ -47,7 +47,7 @@
           <form>
           <button form="product-form" id="save-product-btn" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
           </form>
-          <button id="cancel-btn" class="btn btn-success me-2" type="button">Cancel</button>
+          <button form="product-form" id="cancel-btn" class="btn btn-success me-2" type="submit" name="cancel">Cancel</button>
         </div>
       </nav>
 </div>

@@ -15,7 +15,6 @@ class Database{
         try{
             $connect = new PDO("mysql:host=$this->host;dbname=$this->db", $this->username, $this->password);
 
-            //$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $connect;
 
@@ -52,7 +51,7 @@ class Database{
     }
 
     public function getAllProducts(){
-        $query = "SELECT * FROM products";
+        $query = "SELECT * FROM products ORDER BY sku ASC";
         $stmt = $this->connect()->prepare($query);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
