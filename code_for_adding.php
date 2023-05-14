@@ -21,7 +21,33 @@ if(isset($_POST["save"])){
         $length = $_POST["length"];
         $width = $_POST["width"];
 
-        $DB = new Database();
+        $errorMsg = new ProductController();
+        $errors = $errorMsg->validateInput();
+
+        if(!$errors){
+            header("location: add-product.php");
+            exit();
+        }elseif($errors){
+            if($productType == 'DVD-disc'){
+                $DVD = new DVD($sku, $name, $price, $productType, $size);
+                $DVD->setProduct($sku, $name, $price, $productType, $size);
+                header("location: index.php?error=none");
+                exit();
+            }elseif($productType == 'Book'){
+                $book = new Book($sku, $name, $price, $productType, $weight);
+                $book->setProduct($sku, $name, $price, $productType, $weight);
+                header("location: index.php?error=none");
+                exit();
+            }elseif($productType == 'Furniture'){
+                $furniture = new Furniture($sku, $name, $price, $productType, $height, $length, $width);
+                $furniture->setProduct($sku, $name, $price, $productType, $height, $length, $width);
+                header("location: index.php?error=none");
+                exit();
+            }
+
+        }
+
+        /*$DB = new Database();
         $duplicateError = $DB->checkSkuDuplicate($sku);
 
         $errorEmpty = "Please, submit required data!";
@@ -68,16 +94,11 @@ if(isset($_POST["save"])){
         }else{
         header("location: add-product.php");
         exit();
-    }
+    }*/
 }elseif(isset($_POST["cancel"])){
     header("location: index.php");
     exit();
 }
-            //check if input characters are valid
-            /*if(!preg_match("/^[a-zA-Z]*$/", $name) || !is_numeric($price)){
-                header("location: add.php?save=char");
-                exit();
-            }*/
 
 
 

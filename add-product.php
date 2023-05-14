@@ -57,8 +57,15 @@
 <form id="product-form" name="product-form" action="code_for_adding.php" method="post">
 
 <?php
-  if(isset($_SESSION["error"])){
+  /*if(isset($_SESSION["error"])){
     $error = $_SESSION["error"];
+    echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
+  }*/
+
+  $errorMsg = new ProductController();
+  $errors = $errorMsg->validateInput();
+
+  foreach($errors as $error){
     echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
   }
 
