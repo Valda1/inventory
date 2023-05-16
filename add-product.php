@@ -1,9 +1,9 @@
 <?php
   session_start();
   include 'database/database.php';
-  //include 'models/product.php';
+  include 'models/product.php';
   include 'controllers/product_controller.php';
-  //include 'view/products_view.php';
+  include 'view/products_view.php';
 
 ?>
 
@@ -57,18 +57,13 @@
 <form id="product-form" name="product-form" action="code_for_adding.php" method="post">
 
 <?php
-  /*if(isset($_SESSION["error"])){
-    $error = $_SESSION["error"];
-    echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
-  }*/
+  if(isset($_SESSION["error"])){
+    $errors = $_SESSION["error"];
 
-  $errorMsg = new ProductController();
-  $errors = $errorMsg->validateInput();
-
-  foreach($errors as $error){
-    echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
+    foreach($errors as $error){
+      echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
+    }
   }
-
   ?>
 
   <fieldset>

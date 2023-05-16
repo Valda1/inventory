@@ -1,8 +1,15 @@
 <?php
 
 require_once 'database/database.php';
+require_once 'controllers/product_controller.php';
 
 class ProductsView{
+
+    public function displayErrors(){
+        $err = new ProductController();
+        $errors = $err->validateInput();
+        return $errors;
+    }
 
     public function showProduct($sku){
         $results = $this->getProduct($sku);

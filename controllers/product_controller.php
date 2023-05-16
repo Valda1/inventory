@@ -12,37 +12,60 @@ require_once 'models/product_types/furniture.php';
 
 class ProductController{
 
-    public function validateInput(){
-        $errors;
+    public function validateInput($sku, $name, $price, $productType, $size, $weight, $length, $height, $width){
+        $errors = array();
+        //$errors;
         $errorEmpty = "Please, submit required data!";
         $errorSku = "This SKU already exists! Please, provide another SKU!";
         $errorChar = "Please, provide the data of indicated type!";
 
         if(empty($sku) || empty($name) || empty($price) || empty($productType)){
-            $errors[] = $errorEmpty;  
-            return $errors;
-            //return false;
-        }elseif($duplicateError > 0){
-            $errors[] = $errorSku;
-            return $errors;
-        }elseif(!preg_match("/^[a-zA-Z]*$/", $name) || !is_numeric($price) || !is_numeric($size) ||
-                !is_numeric($weight) || !is_numeric($height) || !is_numeric($length) || !is_numeric($width)){
-            $errors[] = $errorChar;
-            return $errors;
-            //return false;
-        }elseif($productType == 'DVD-disc' && empty($size)){
-            $errors[] = $errorEmpty;
-            return $errors;
-            //return false;
-        }elseif($productType == 'Book' && empty($weight)){
-            $errors[] = $errorEmpty;
-            return $errors;
-            //return false;
-        }elseif($productType == 'Furniture' && empty($height) || empty($length) || empty($width)){
-            $errors[] = $errorEmpty;
-            return $errors;
-            //return false;
+            $errors[] = "Please, submit required data!";
         }
+
+        if(!preg_match("/^[a-zA-Z]*$/", $name)){
+            $errors[] = "Please, provide the data of indicated type!";
+        }
+
+        if(!is_numeric($price)){
+            $errors[] = "Please, provide the data of indicated type!";
+        }
+
+        if($productType == 'DVD-disc' && empty($size)){
+            $errors[] = "Please, submit required data!";
+            //exit();
+        }elseif($productType == 'Book' && empty($weight)){
+            $errors[] = "Please, submit required data!";
+            //exit();
+        }elseif($productType == 'Furniture' && empty($height) || empty($length) || empty($width)){
+            $errors[] = "Please, submit required data!";
+        }
+
+        if($productType == 'DVD-disc' && !is_numeric($size)){
+            $errors[] = "Please, provide the data of indicated type!";
+            //exit();
+        }elseif($productType == 'Book' && !is_numeric($weight)){
+            $errors[] = "Please, provide the data of indicated type!";
+            //exit();
+        }elseif($productType == 'Furniture' && !is_numeric($height) || !is_numeric($length) || !is_numeric($width)){
+            $errors[] = "Please, provide the data of indicated type!";
+            //exit();
+        }
+
+        return $errors;
+
+        /*if($productType == 'DVD-disc' && empty($size)){
+            $errors[] = "Please, submit required data!";
+        }
+
+        if($productType == 'Book' && empty($weight)){
+            $errors[] = "Please, submit required data!";
+        }
+
+        if($productType == 'Furniture' && empty($height) || empty($length) || empty($width)){
+            $errors[] = "Please, submit required data!";
+
+        }*/
 }
 
     public function createDVD(){

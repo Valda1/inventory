@@ -6,7 +6,7 @@
   include 'database/database.php';
   include 'models/product.php';
   include 'view/products_view.php';
-  include 'controllers/product_controller.php';
+  //include 'controllers/product_controller.php';
   
 ?>
 
