@@ -1,6 +1,4 @@
 <?php
-
-//namespace database;
 //use PDO;
 
 class Database{
@@ -73,9 +71,6 @@ class Database{
             $stmt->execute([$sku]);
             $count = $stmt->rowCount();
             return $count;
-            //if($count > 0){
-            //$error = "<span>This sku number has already been taken!</span>";
-        
 
             }catch(PDOException $e){
                 $e->getMessage();

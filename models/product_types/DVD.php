@@ -1,16 +1,7 @@
 <?php
 
-//use \database\Database as DB;
-
 require_once 'database/database.php';
 require_once 'models/product.php';
-
-//$DB = new Database();
-//$DB->connect();
-
-//DB\connect();
-
-
 
 class DVD extends Product{
 

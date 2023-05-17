@@ -107,7 +107,6 @@
     </div>   
     <div class="col-sm-auto"> 
         <select class="form-control form-select type border border-primary rounded" id="type" name="type"><!-- do i need form control-->
-          <!--<option value="default" selected disabled hidden>Type Switcher</option>-->
           <option value="">Type Switcher</option>
           <option value="DVD-disc">DVD-disc</option>
           <option value="Book">Book</option>
@@ -187,31 +186,6 @@
 
 </div>
 
-<?php
-
-        /*if(!isset($_GET['save'])){
-          exit();
-        }else{
-          $save = $_GET['save'];
-
-          if($save == "empty"){
-            //echo "<p class='error'>You have to fill in all the fields!</p>";
-            //echo "<p class='alert alert-warning'>You have to fill in all the fields!</p>";
-            echo "<div class='alert'>You have to fill in all the fields!</div>";
-            exit();
-          }elseif($save == "char"){
-            echo "<p class='error'>Incorrect input!</p>";
-            exit();
-          }elseif($save == "success"){
-            echo "<p class='error'>Your have added new product successfully!</p>";
-            exit();
-          }
-        }*/
-
-        ?>
-</div>
-
-<!--<footer id="footer" class="mt-auto pt-5 mt-5">-->
 <footer class="mt-auto">
         <div class="mx-5 py-3 text-center border-top border-2 border-primary">
             Scandiweb Test assignment

@@ -80,6 +80,9 @@
                       <h5 class="card-title"><?php echo $product['sku']; ?></h5>
                       <h6 class="card-text"><?php echo $product['name']; ?></h6>
                       <h6 class="card-text"><?php echo number_format($product['price'], 2); ?></h6>
+                      <h6 class="card-text"><?php if(!empty($product['size'])){ echo "Size: " . $product['size'] . "MB";}; ?></h6>
+                      <h6 class="card-text"><?php if(!empty($product['weight'])){ echo "Weight: " . $product['weight'] . "KG";}; ?></h6>
+                      <h6 class="card-text"><?php if(!empty($product['height']) && !empty($product['length']) && !empty($product['width'])){ echo "Dimentions: " . $product['height'] . "x" . $product['length'] . "x" . $product['width'];}; ?></h6>
                 </div>
             </div>
           </div>

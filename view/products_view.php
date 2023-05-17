@@ -5,12 +5,6 @@ require_once 'controllers/product_controller.php';
 
 class ProductsView{
 
-    public function displayErrors(){
-        $err = new ProductController();
-        $errors = $err->validateInput();
-        return $errors;
-    }
-
     public function showProduct($sku){
         $results = $this->getProduct($sku);
         echo $results['sku'];
@@ -22,8 +16,6 @@ class ProductsView{
         $DB = new Database();
         $products = $DB->getAllProducts();
 
-
-        //$products = $this->getAllProducts();
 
         foreach($products as $product) {
             
