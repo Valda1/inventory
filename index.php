@@ -2,12 +2,7 @@
   session_start();
 
   //include 'includes/autoloader.php';
-  
-  include 'database/database.php';
-  include 'models/product.php';
-  include 'view/products_view.php';
-  //include 'controllers/product_controller.php';
-  
+  require 'database/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +26,6 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
      crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <!--vue.js link-->
-     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
 </head>
 
 <body>
@@ -45,7 +38,6 @@
             </div> 
             <div class="container-fluid justify-content-end">
               <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/add-product">ADD</a></button>
-              <!--href="index.php?add_product" or "/add-product-->
             <form id="cards-form" action="code_for_deleting.php" method="post">
               <button id="delete-product-btn" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
               <!-- add for="..."-->
@@ -92,13 +84,9 @@
 
 </div>
 
-<footer class="mt-auto">
-        <div class="mx-5 py-3 text-center border-top border-2 border-primary">
-            Scandiweb Test assignment
-        </div>
-</footer>
-
-
+<?php
+  include_once 'includes/footer.php';
+?>
 
     <!--Bootstrap JS link-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 

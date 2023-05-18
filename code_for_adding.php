@@ -2,12 +2,12 @@
 
 session_start();
 
-include 'database/database.php';
-include 'models/product.php';
+//include 'database/database.php';
+//include 'models/product.php';
 include 'models/product_types/DVD.php';
 include 'models/product_types/book.php';
 include 'models/product_types/furniture.php';
-include 'controllers/product_controller.php';
+require 'controllers/product_controller.php';
 
 if(isset($_POST["save"])){
 

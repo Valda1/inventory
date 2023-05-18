@@ -1,8 +1,8 @@
 <?php
 
-include 'database/database.php';
-include 'models/product.php';
-include 'controllers/product_controller.php';
+require 'database/database.php';
+//include 'models/product.php';
+//include 'controllers/product_controller.php';
 
 if(isset($_POST['delete'])){
     if(isset($_POST['sku'])){

@@ -1,10 +1,8 @@
 <?php
   session_start();
-  include 'database/database.php';
-  include 'models/product.php';
-  include 'controllers/product_controller.php';
-  include 'view/products_view.php';
-
+  //include 'database/database.php';
+  //include 'models/product.php';
+  //include 'controllers/product_controller.php';
 ?>
 
 
@@ -25,13 +23,8 @@
     <!--bootstrap css link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-     <!--vue.js link-->
-     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
      <!--css link-->
      <link rel="stylesheet" href="style.css">
-     <!--ajax link-->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
-
 
 </head>
 <body>
@@ -125,7 +118,7 @@
         <div class="col-sm-2 col-lg-1">
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
-        <div class="col-sm-2 position-relative">
+        <div class="col-sm-auto position-relative">
           <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
         </div>
       </div>
@@ -140,7 +133,7 @@
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
-        <div class="col-sm-2 position-relative">
+        <div class="col-sm-auto position-relative">
           <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
         </div>
       </div>
@@ -155,7 +148,7 @@
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
-        <div class="col-sm-2 position-relative">
+        <div class="col-sm-auto position-relative">
           <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
         </div>
       </div>
@@ -164,7 +157,7 @@
         <div class="col-sm-2 col-lg-1">
           <label for="width" class="col-form-label">Width (CM)</label>
         </div>
-        <div class="col-sm-2 position-relative">
+        <div class="col-sm-auto position-relative">
           <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
         </div>
       </div>
@@ -173,7 +166,7 @@
         <div class="col-sm-2 col-lg-1">
           <label for="length" class="col-form-label">Length (CM)</label>
         </div>
-        <div class="col-sm-2 position-relative">
+        <div class="col-sm-auto position-relative">
           <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
         </div>
       </div>
@@ -186,12 +179,9 @@
 
 </div>
 
-<footer class="mt-auto">
-        <div class="mx-5 py-3 text-center border-top border-2 border-primary">
-            Scandiweb Test assignment
-        </div>
-</footer>
-
+<?php
+  include_once 'includes/footer.php';
+?>
 
     <!--bootstrap js link-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
