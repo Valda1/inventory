@@ -25,7 +25,7 @@ class Furniture extends Product{
 
     public function setProduct($sku, $name, $price, $productType, $height = null, $length = null, $width = null){
         $DB = new Database();
-        $query = "INSERT INTO products (sku, name, price, product_type, height, length, width) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO products (sku, name, price, product_type, height_cm, length_cm, width_cm) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $DB->connect()->prepare($query);
         $stmt->execute([$sku, $name, $price, $productType, $height, $length, $width]);
     }

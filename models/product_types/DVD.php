@@ -23,7 +23,7 @@ class DVD extends Product{
         $DB = new Database();
 
         try{
-            $query = "INSERT INTO products (sku, name, price, product_type, size) VALUES (?, ?, ?, ?, ?)";
+            $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES (?, ?, ?, ?, ?)";
             //$stmt = $this->connect()->prepare($query);
             $stmt = $DB->connect()->prepare($query);
             $stmt->execute([$sku, $name, $price, $productType, $size]);
