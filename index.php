@@ -20,10 +20,8 @@
     <!--bootstrap link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-     <!--font awesome link-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!--favicon-->
+     <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 
 <body>
@@ -38,7 +36,6 @@
               <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/add-product">ADD</a></button>
             <form id="cards-form" action="code_for_deleting.php" method="post">
               <button id="delete-product-btn" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
-              <!-- add for="..."-->
             </form>
             </div>
           </nav>
@@ -50,13 +47,10 @@
         <form id="cards-form" action="code_for_deleting.php" method="post">
         <div class="row gy-3">
           <?php
-          //$products = new ProductsView();
-          //$products->showAllProducts();
+
           $file = new Database();
           $products = $file->getAllProducts();
-          
-          //$file = new ProductsView();
-          //$products = $file->showAllProducts();
+
           foreach($products as $product){
           ?>
           <div class="col-6 col-md-3">
@@ -70,9 +64,9 @@
                       <h5 class="card-title"><?php echo $product['sku']; ?></h5>
                       <h6 class="card-text"><?php echo $product['name']; ?></h6>
                       <h6 class="card-text"><?php echo number_format($product['price'], 2); ?></h6>
-                      <h6 class="card-text"><?php if(!empty($product['size'])){ echo "Size: " . $product['size'] . "MB";}; ?></h6>
-                      <h6 class="card-text"><?php if(!empty($product['weight'])){ echo "Weight: " . $product['weight'] . "KG";}; ?></h6>
-                      <h6 class="card-text"><?php if(!empty($product['height']) && !empty($product['length']) && !empty($product['width'])){ echo "Dimentions: " . $product['height'] . "x" . $product['length'] . "x" . $product['width'];}; ?></h6>
+                      <h6 class="card-text"><?php if(!empty($product['size_mb'])){ echo "Size: " . $product['size_mb'] . "MB";}; ?></h6>
+                      <h6 class="card-text"><?php if(!empty($product['weight_kg'])){ echo "Weight: " . $product['weight_kg'] . "KG";}; ?></h6>
+                      <h6 class="card-text"><?php if(!empty($product['height_cm']) && !empty($product['length_cm']) && !empty($product['width_cm'])){ echo "Dimentions: " . $product['height_cm'] . "x" . $product['length_cm'] . "x" . $product['width_cm'];}; ?></h6>
                 </div>
             </div>
           </div>
@@ -86,8 +80,5 @@
   include_once 'includes/footer.php';
 ?>
 
-    <!--Bootstrap JS link-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

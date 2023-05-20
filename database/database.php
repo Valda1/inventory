@@ -1,5 +1,4 @@
 <?php
-//use PDO;
 
 class Database{
 
@@ -16,23 +15,6 @@ class Database{
             $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $connect;
 
-            /*$sql = "CREATE TABLE products(
-                sku VARCHAR(255) NOT NULL PRIMARY KEY,
-                name VARCHAR(100) NOT NULL,
-                price DOUBLE NOT NULL,
-                product_type VARCHAR NOT NULL,
-                attributes VARCHAR NOT NULL
-            ),
-
-            INSERT INTO products(sku, name, price, product_type, attributes) VALUES 
-            (JVG200123, Acme DISC, 1.00, DVD, 700),
-            (GGWP0007, War and Peace, 20.00, 2),
-            (TR120555, Chair, 40.00, 24x45x15)";
-
-            if(!sql){
-                die();
-            }*/
-
         }catch(PDOException $exception){
             $exception->getMessage();
             die();
@@ -40,28 +22,44 @@ class Database{
     }
 
     public function getProduct($sku){
-        $query = "SELECT * FROM products WHERE sku = ?";
-        $stmt = $this->connect()->prepare($query);
-        $stmt->execute();
+        try{
+            $query = "SELECT * FROM products WHERE sku = ?";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute();
 
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $results;
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+        
     }
 
     public function getAllProducts(){
-        $query = "SELECT * FROM products ORDER BY sku ASC";
-        $stmt = $this->connect()->prepare($query);
-        $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try{
+            $query = "SELECT * FROM products ORDER BY sku ASC";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        return $results;
+            return $results;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+        
 
     }
 
     public function deleteProduct($sku){
-        $query = "DELETE FROM products WHERE sku = ?";
-        $stmt = $this->connect()->prepare($query);
-        $stmt->execute([$sku]);
+        try{
+            $query = "DELETE FROM products WHERE sku = ?";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute([$sku]);
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+        
     }
 
     public function checkSkuDuplicate($sku){
@@ -77,34 +75,5 @@ class Database{
             }
 
 }
+
 }
-
-    /*public function read($query){
-        $conn = $this->connect();
-        $result = mysqli_query($conn, $query);
-
-        if(!$result){
-            return false;
-        }else{
-            $data = false;
-            while($row = mysqli_fetch_assoc($result)){
-                $data[] = $row;
-            }
-
-            return $data;
-        }
-
-    }
-
-    public function save($query){
-        $conn = $this->connect();
-        $result = mysqli_query($conn, $query);
-
-        if(!$result){
-            return false;
-        }else{
-            return true;
-        }
-        
-
-    }*/

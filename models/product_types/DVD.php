@@ -24,7 +24,6 @@ class DVD extends Product{
 
         try{
             $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES (?, ?, ?, ?, ?)";
-            //$stmt = $this->connect()->prepare($query);
             $stmt = $DB->connect()->prepare($query);
             $stmt->execute([$sku, $name, $price, $productType, $size]);
         }catch(PDOException $e){

@@ -1,10 +1,6 @@
 <?php
   session_start();
-  //include 'database/database.php';
-  //include 'models/product.php';
-  //include 'controllers/product_controller.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +21,8 @@
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--css link-->
      <link rel="stylesheet" href="style.css">
+     <!--favicon-->
+     <link rel="icon" type="image/x-icon" href="favicon.png">
 
 </head>
 <body>
@@ -61,13 +59,12 @@
 
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
-        <!--<div class="input-group mb-3">-->
           <div class="col-sm-2 col-lg-1">
-              <label id="sku" name="sku" for="sku" class="col-form-label">SKU</label>
+              <label for="sku" class="col-form-label">SKU</label>
           </div>
 
           <div class="col-sm-auto position-relative">
-              <input class="border border-primary rounded" id="input-sku" type="text" class="form-control" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
+              <input class="border border-primary rounded" id="sku" type="text" class="form-control" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
           </div>
       </div>
 
@@ -78,7 +75,7 @@
           <label for="name" class="col-form-label">Name</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input class="border border-primary rounded" id="input-name" type="text" class="form-control" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
+          <input class="border border-primary rounded" id="name" type="text" class="form-control" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
         </div>
       </div>
 
@@ -87,19 +84,18 @@
           <label for="price" class="col-form-label">Price ($)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input class="border border-primary rounded" id="input-price" type="number" min="0.01" step="0.01" class="form-control" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
+          <input class="border border-primary rounded" id="price" type="number" min="0.01" step="0.01" class="form-control" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
         </div>
       </div>
   </fieldset>
 
   <div class="row mb-5 g-3 align-items-center">
     <div class="col-sm-2 col-lg-1">
-      <!--<div class="form-group">-->
         <label for="type">Type Switcher</label>
-        <!--<label for="productType">Product Type</label>-->
     </div>   
     <div class="col-sm-auto"> 
-        <select class="form-control form-select type border border-primary rounded" id="type" name="type"><!-- do i need form control-->
+        <select class="form-control form-select type border border-primary rounded" id="type" name="type">
+          <!-- do i need form control-->
           <option value="">Type Switcher</option>
           <option value="DVD-disc">DVD-disc</option>
           <option value="Book">Book</option>
@@ -119,7 +115,7 @@
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
+          <input id="size" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
         </div>
       </div>
 </fieldset>
@@ -134,7 +130,7 @@
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
+          <input id="weight" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
         </div>
       </div>
 </fieldset>
@@ -149,7 +145,7 @@
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
+          <input id="height" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
         </div>
       </div>
 
@@ -158,7 +154,7 @@
           <label for="width" class="col-form-label">Width (CM)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
+          <input id="width" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
         </div>
       </div>
 
@@ -167,7 +163,7 @@
           <label for="length" class="col-form-label">Length (CM)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
+          <input id="length" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
         </div>
       </div>
 
@@ -183,9 +179,6 @@
   include_once 'includes/footer.php';
 ?>
 
-    <!--bootstrap js link-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
 

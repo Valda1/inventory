@@ -2,8 +2,6 @@
 
 session_start();
 
-//include 'database/database.php';
-//include 'models/product.php';
 include 'models/product_types/DVD.php';
 include 'models/product_types/book.php';
 include 'models/product_types/furniture.php';

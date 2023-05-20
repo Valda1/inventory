@@ -1,8 +1,3 @@
-.myDiv{
-    //display: none;
-    //display: flex !important;
-}
-
 .error{
     background-color: #ff6242;
 }
@@ -11,8 +6,4 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh
-}
-
-#attributes{
-    display: flex;
 }

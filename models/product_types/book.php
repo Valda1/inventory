@@ -21,9 +21,14 @@ class Book extends Product{
 
     public function setProduct($sku, $name, $price, $productType, $weight = null){
         $DB = new Database();
-        $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $DB->connect()->prepare($query);
-        $stmt->execute([$sku, $name, $price, $productType, $weight]);
+        try{
+            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $DB->connect()->prepare($query);
+            $stmt->execute([$sku, $name, $price, $productType, $weight]);
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+        
     }
 
     

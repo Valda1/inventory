@@ -65,23 +65,6 @@ class ProductController{
         return $errors;
 }
 
-    /*public function createDVD(){
-        $DVD = new DVD(null, null, null, null, null);
-        $DVD->setProduct($sku, $name, $price, $productType, $size);
-
-    }
-
-    public function createBook(){
-        $book = new Book();
-        $book->setProduct($sku, $name, $price, $productType, $weight);
-
-    }
-
-    public function createFurniture(){
-        $furniture = new Furniture();
-        $furniture->setProduct($sku, $name, $price, $productType, $height, $length, $width);
-
-    }*/
 
 
 }
