@@ -28,18 +28,24 @@ if(isset($_POST["save"])){
             exit();
         }elseif(empty($error)){
             if($productType == 'DVD-disc'){
-                $DVD = new DVD($sku, $name, $price, $productType, $size);
-                $DVD->setProduct($sku, $name, $price, $productType, $size);
+                /*$DVD = new DVD($sku, $name, $price, $productType, $size);
+                $DVD->setProduct($sku, $name, $price, $productType, $size);*/
+                $PC = new ProductController();
+                $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);
                 header("location: index.php?error=none");
                 exit();
             }elseif($productType == 'Book'){
-                $book = new Book($sku, $name, $price, $productType, $weight);
-                $book->setProduct($sku, $name, $price, $productType, $weight);
+                /*$book = new Book($sku, $name, $price, $productType, $weight);
+                $book->setProduct($sku, $name, $price, $productType, $weight);*/
+                $PC = new ProductController();
+                $book = $PC->createBook($sku, $name, $price, $productType, $weight);
                 header("location: index.php?error=none");
                 exit();
             }elseif($productType == 'Furniture'){
-                $furniture = new Furniture($sku, $name, $price, $productType, $height, $length, $width);
-                $furniture->setProduct($sku, $name, $price, $productType, $height, $length, $width);
+                /*$furniture = new Furniture($sku, $name, $price, $productType, $height, $length, $width);
+                $furniture->setProduct($sku, $name, $price, $productType, $height, $length, $width);*/
+                $PC = new ProductController();
+                $furniture = $PC->createFurniture($sku, $name, $price, $productType, $height, $length, $width);
                 header("location: index.php?error=none");
                 exit();
             }

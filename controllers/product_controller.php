@@ -1,11 +1,6 @@
 <?php
 
-require_once 'database/database.php';
-require_once 'models/product.php';
-
-require_once 'models/product_types/DVD.php';
-require_once 'models/product_types/book.php';
-require_once 'models/product_types/furniture.php';
+require 'database/database.php';
 
 class ProductController{
 
@@ -63,6 +58,21 @@ class ProductController{
         }
 
         return $errors;
+}
+
+public function createBook($sku, $name, $price, $productType, $weight){
+    $obj = new Book($sku, $name, $price, $productType, $weight);
+    $book = $obj->setProduct($sku, $name, $price, $productType, $weight);
+}
+
+public function createDVD($sku, $name, $price, $productType, $size){
+    $obj = new DVD($sku, $name, $price, $productType, $size);
+    $DVD = $obj->setProduct($sku, $name, $price, $productType, $size);
+}
+
+public function createFurniture($sku, $name, $price, $productType, $height, $length, $width){
+    $obj = new Furniture($sku, $name, $price, $productType, $height, $length, $width);
+    $furniture = $obj->setProduct($sku, $name, $price, $productType, $height, $length, $width);
 }
 
 

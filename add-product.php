@@ -20,9 +20,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--css link-->
-     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="styles/style.css">
      <!--favicon-->
-     <link rel="icon" type="image/x-icon" href="favicon.png">
+     <link rel="icon" type="image/x-icon" href="styles/img/favicon.ico">
 
 </head>
 <body>
@@ -36,16 +36,16 @@
         </div>
         <div class="container-fluid justify-content-end">
           <form>
-          <button form="product-form" id="save-product-btn" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
+          <button form="product_form" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
           </form>
-          <button form="product-form" id="cancel-btn" class="btn btn-success me-2" type="submit" name="cancel">Cancel</button>
+          <button form="product_form" class="btn btn-success me-2" type="submit" name="cancel">Cancel</button>
         </div>
       </nav>
 </div>
 </header>
 
 <div class="container mt-4">
-<form id="product-form" name="product-form" action="code_for_adding.php" method="post">
+<form id="product_form" name="product_form" action="code_for_adding.php" method="post">
 
 <?php
   if(isset($_SESSION["error"])){
@@ -94,7 +94,7 @@
         <label for="type">Type Switcher</label>
     </div>   
     <div class="col-sm-auto"> 
-        <select class="form-control form-select type border border-primary rounded" id="type" name="type">
+        <select class="form-control form-select type border border-primary rounded" id="productType" name="type">
           <!-- do i need form control-->
           <option value="">Type Switcher</option>
           <option value="DVD-disc">DVD-disc</option>

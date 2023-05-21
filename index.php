@@ -16,12 +16,12 @@
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
     <!--css file-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!--bootstrap link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--favicon-->
-     <link rel="icon" type="image/x-icon" href="favicon.png">
+     <link rel="icon" type="image/x-icon" href="styles/img/favicon.ico">
 </head>
 
 <body>
@@ -48,8 +48,8 @@
         <div class="row gy-3">
           <?php
 
-          $file = new Database();
-          $products = $file->getAllProducts();
+          $DB = new Database();
+          $products = $DB->getAllProducts();
 
           foreach($products as $product){
           ?>

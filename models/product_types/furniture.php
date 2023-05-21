@@ -1,6 +1,6 @@
 <?php
 
-require_once 'database/database.php';
+//require_once 'database/database.php';
 require_once 'models/product.php';
 
 class Furniture extends Product{
