@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require 'controllers/product_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,8 @@
     src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
+    <!--ajax link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--javasript link-->
     <script src="script.js" defer></script>
     <!--bootstrap css link-->
@@ -36,7 +39,7 @@
         </div>
         <div class="container-fluid justify-content-end">
           <form>
-          <button form="product_form" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
+          <button id="saveBtn" form="product_form" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
           </form>
           <button form="product_form" class="btn btn-success me-2" type="submit" name="cancel">Cancel</button>
         </div>
@@ -56,6 +59,9 @@
     }
   }
   ?>
+
+  <!--<p class="error"></p>-->
+  <div class="col-sm-3 text-center error fw-bold rounded"></div>
 
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
