@@ -61,7 +61,7 @@
   ?>
 
   <!--<p class="error"></p>-->
-  <div class="col-sm-3 text-center error fw-bold rounded"></div>
+  <div id="error-msg" class="col-sm-3 text-center error fw-bold rounded"></div>
 
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
