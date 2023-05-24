@@ -12,6 +12,49 @@ $(document).ready(function(){
     }).change();
 });
 
+let productForm = document.getElementById('product_form');
+
+productForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    const formattedFormData = new FormData(productForm);
+
+    /*const formattedFormData = {
+        sku: this.sku.value,
+        name: this.name.value,
+        price: this.price.value,
+        productType: this.productType.value,
+        size: this.size.value,
+        weight: this.weight.value,
+        height: this.height.value,
+        length: this.length.value,
+        width: this.width.value
+    }*/
+    postData(formattedFormData);
+
+    /*let formData = new FormData(productForm);
+    let data = Object.fromEntries(formData);
+    let jsonData = JSON.stringify(data);
+
+    fetch('code_for_adding.php', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonData //was formData
+    }).then(res => res.json())
+    .then(result => console.log(result.data))
+    .catch(err => console.log(err))*/
+});
+
+async function postData(formattedFormData){
+    const response = await fetch('code_for_adding.php', {
+        method: 'POST',
+        body: formattedFormData
+    });
+    const data = await response.text();
+    console.log(data);
+}
+
 /*$(document).ready(function(){
     $("#product_form").submit(function(event){
         event.preventDefault();
@@ -40,13 +83,11 @@ $(document).ready(function(){
                 height: height,
                 length: length,
                 width: width,
-                save: save,
+                save: save
                 //error: error
             },
             success: function(data){
-                if(data == 'false'){
-                    window.location.replace('index.php?error=none');
-                }
+                alert("problem");
                 alert(data);
             },
             error: function(request, status, error){
@@ -57,7 +98,7 @@ $(document).ready(function(){
     
 });*/
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     $("#product_form").submit(function(event){
         event.preventDefault();
         var sku = $("#sku").val();
@@ -84,14 +125,16 @@ $(document).ready(function(){
             save: save,
             //hasErrors: "<?php echo $hasErrors ?>"
             //'error': error
-        }/*, function(data){
-            if(data != null){
-                window.location.replace('index.php?error=none');
+        }, function(data){
+            if(!empty(data)){
+                alert("empty fields");
+            }else{
+                alert("no error");
             }
-            alert(data);
-        }*/);
+            //alert(data);
+        });
     });
-});
+});*/
 
 
 
