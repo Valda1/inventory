@@ -48,7 +48,7 @@
 </header>
 
 <div class="container mt-4">
-<form id="product_form" name="product_form" action="code_for_adding.php" method="post">
+<form id="product_form" name="product_form" action="code_for_adding.php" method="post" onsubmit="return fetchForm();">
 
 <?php
   if(isset($_SESSION["error"])){
@@ -100,7 +100,7 @@
         <label for="type">Type Switcher</label>
     </div>   
     <div class="col-sm-auto"> 
-        <select class="form-control form-select type border border-primary rounded" id="productType" name="type">
+        <select class="form-control form-select type border border-primary rounded" id="productType" name="productType">
           <!-- do i need form control-->
           <option value="">Type Switcher</option>
           <option value="DVD-disc">DVD-disc</option>

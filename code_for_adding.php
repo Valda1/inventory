@@ -23,16 +23,18 @@ if(isset($_POST["save"])){
     echo $data["width"];*/
 
     //echo json_encode($data);
+    //$_POST = json_decode(file_get_contents('php://input'), true);
 
-        echo $sku = $_POST["sku"];
-        echo $name = $_POST["name"];
-        echo $price = $_POST["price"];
-        echo $productType = $_POST["productType"];
-        echo $size = $_POST["size"];
-        echo $weight = $_POST["weight"];
-        echo $height = $_POST["height"];
-        echo $length = $_POST["length"];
-        echo $width = $_POST["width"];
+        $sku = $_POST["sku"];
+        $name = $_POST["name"];
+        $price = $_POST["price"];
+        $productType = $_POST["productType"];
+        $size = $_POST["size"];
+        $weight = $_POST["weight"];
+        $height = $_POST["height"];
+        $length = $_POST["length"];
+        $width = $_POST["width"];
+        //$e = $_POST["error-msg"];
 
         //$data = json_decode(file_get_contents('php://input'), true);
         //echo json_encode($data);
@@ -49,7 +51,13 @@ if(isset($_POST["save"])){
         if(!empty($error)){
             foreach($error as $e){
                 echo "<span class='error'>" . $e . "</span> <br>";
+                //print "<span class='error'>" . $e . "</span> <br>";
+                //$e = "error";
             }
+            //http_response_code(400);
+            //header('400 Bad Request');
+            //header('Retry-After: 600');
+
             //$error = $_POST["error"];
             //$_SESSION["error"] = $error;
             //header("location: add-product.php");
