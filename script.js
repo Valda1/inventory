@@ -13,6 +13,12 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+    $("#cancelBtn").click(function(){
+        window.location.replace("http://localhost/task/index.php");
+    })
+});
+
+$(document).ready(function(){
     $("#product_form").submit(function(event){
         event.preventDefault();
         var sku = $("#sku").val();
@@ -25,6 +31,7 @@ $(document).ready(function(){
         var length = $("#length").val();
         var width = $("#width").val();
         var save = $("#saveBtn").val();
+        //var cancel = $("#cancelBtn").val();
         $(".error").load("code_for_adding.php", {
             sku: sku,
             name: name,
@@ -35,7 +42,8 @@ $(document).ready(function(){
             height: height,
             length: length,
             width: width,
-            save: save
+            save: save,
+            //cancel: cancel
         },
         function(){
             let errorMsg = document.getElementById('error-msg');
@@ -46,65 +54,6 @@ $(document).ready(function(){
         })
     });
 });
-
-/*function fetchForm(){
-    let productForm = document.getElementById('product_form');
-    let formData = new FormData(productForm);
-    var errorMsg = "<?php echo $e; ?>";
-
-    productForm.addEventListener('submit', async function(event){
-        event.preventDefault();
-
-        await fetch('add-product.php', {
-            method: 'POST',
-            body: formData
-        })
-        /*.then(function(response){
-            if(!response.ok){
-                let errorElement = document.querySelector('#error-msg');
-                errorElement.innerHTML = 'Error!';
-            }
-        })*/
-        /*.then(res => res.text())
-        .then(function(res){
-            if(res.status === '400'){
-                alert("yes");
-            }
-        })*/
-        //.then(txt => console.log(txt))
-        /*.then(function(errorMsg){
-            document.write(errorMsg);
-        })*/
-        //.then(document.getElementById('error-msg').innerHTML = errorMsg);
-        //.catch(err => console.log(err));
-        //return false;
-        /*.then(e => {
-            output = `
-            <span class='error'>" . ${e} . "</span> <br>
-            `;
-            document.getElementById('error-msg').innerHTML = output;
-        })*/
-    //});
-
-    
-//}*/
-
-    //let formData = new FormData(productForm);
-    //let data = Object.fromEntries(formData);
-    //let jsonData = JSON.stringify(data);
-
-    /*fetch('code_for_adding.php', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: jsonData //was formData
-    }).then(res => res.json())
-    .then(result => console.log(result.data))
-    .catch(err => console.log(err))
-});*/
-
-
 
 
 

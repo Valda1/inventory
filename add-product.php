@@ -1,5 +1,4 @@
 <?php
-  session_start();
   require 'controllers/product_controller.php';
 ?>
 
@@ -15,8 +14,6 @@
     src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
-    <!--ajax link-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--javasript link-->
     <script src="script.js" defer></script>
     <!--bootstrap css link-->
@@ -41,24 +38,14 @@
           <form>
           <button id="saveBtn" form="product_form" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
           </form>
-          <button form="product_form" class="btn btn-success me-2" type="submit" name="cancel">Cancel</button>
+          <button id="cancelBtn" class="btn btn-success me-2" type="button">Cancel</button>
         </div>
       </nav>
 </div>
 </header>
 
 <div class="container mt-4">
-<form id="product_form" name="product_form" action="code_for_adding.php" method="post" onsubmit="return fetchForm();">
-
-<?php
-  if(isset($_SESSION["error"])){
-    $errors = $_SESSION["error"];
-
-    foreach($errors as $error){
-      echo "<div class='col-sm-3 text-center error fw-bold rounded'><p>$error</p></div>";
-    }
-  }
-  ?>
+<form id="product_form" name="product_form" action="code_for_adding.php" method="post">
 
   <!--<p class="error"></p>-->
   <div id="error-msg" class="col-sm-3 text-center error fw-bold rounded"></div>
@@ -188,8 +175,3 @@
 </body>
 
 </html>
-
-<?php
-  unset($_SESSION["error"]);
-
-?>
