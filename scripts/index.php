@@ -1,5 +1,5 @@
 <?php
-  require 'database/database.php';
+  require '../database/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--favicon-->
-     <link rel="icon" type="image/x-icon" href="styles/img/favicon.ico">
+     <link rel="icon" type="image/x-icon" href="../styles/img/favicon.ico">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
 </header>
 
       <div class="container my-5">
-        <form id="cards-form" action="code_for_deleting.php" method="post">
+        <form id="cards-form" action="product_deletion.php" method="post">
         <div class="row gy-3">
           <?php
 
@@ -76,7 +76,7 @@
 </div>
 
 <?php
-  include_once 'includes/footer.php';
+  include_once '../includes/footer.php';
 ?>
 
 </body>

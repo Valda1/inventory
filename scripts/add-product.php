@@ -1,5 +1,5 @@
 <?php
-  require 'controllers/product_controller.php';
+  require '../controllers/product_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +14,17 @@
     src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
+    <!--ajax link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--javasript link-->
     <script src="script.js" defer></script>
     <!--bootstrap css link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--css link-->
-     <link rel="stylesheet" href="styles/style.css">
+     <link rel="stylesheet" href="../styles/style.css">
      <!--favicon-->
-     <link rel="icon" type="image/x-icon" href="styles/img/favicon.ico">
+     <link rel="icon" type="image/x-icon" href="../styles/img/favicon.ico">
 
 </head>
 <body>
@@ -45,10 +47,9 @@
 </header>
 
 <div class="container mt-4">
-<form id="product_form" name="product_form" action="code_for_adding.php" method="post">
+<form id="product_form" name="product_form" action="product_submission.php" method="post">
 
-  <!--<p class="error"></p>-->
-  <div id="error-msg" class="col-sm-3 text-center error fw-bold rounded"></div>
+  <div id="error-msg" class="col-sm-3 text-center error fw-bold rounded ring neon-purple"></div>
 
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
@@ -169,7 +170,7 @@
 </div>
 
 <?php
-  include_once 'includes/footer.php';
+  include_once '../includes/footer.php';
 ?>
 
 </body>

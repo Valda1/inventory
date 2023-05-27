@@ -21,21 +21,6 @@ class Database{
         }
     }
 
-    public function getProduct($sku){
-        try{
-            $query = "SELECT * FROM products WHERE sku = ?";
-            $stmt = $this->connect()->prepare($query);
-            $stmt->execute();
-
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $results;
-
-        }catch(PDOException $e){
-            $e->getMessage();
-        }
-        
-    }
-
     public function getAllProducts(){
         try{
             $query = "SELECT * FROM products ORDER BY sku ASC";

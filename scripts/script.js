@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#cancelBtn").click(function(){
-        window.location.replace("http://localhost/task/index.php");
+        window.location.replace("http://localhost/task//scripts/index.php");
     })
 });
 
@@ -31,8 +31,7 @@ $(document).ready(function(){
         var length = $("#length").val();
         var width = $("#width").val();
         var save = $("#saveBtn").val();
-        //var cancel = $("#cancelBtn").val();
-        $(".error").load("code_for_adding.php", {
+        $(".error").load("product_submission.php", {
             sku: sku,
             name: name,
             price: price,
@@ -42,13 +41,12 @@ $(document).ready(function(){
             height: height,
             length: length,
             width: width,
-            save: save,
-            //cancel: cancel
+            save: save
         },
         function(){
             let errorMsg = document.getElementById('error-msg');
             if(errorMsg.textContent.trim() === ''){
-                window.location.replace("http://localhost/task/index.php?error=none");
+                window.location.replace("http://localhost/task//scripts/index.php?error=none");
             }
 
         })

@@ -1,6 +1,6 @@
 <?php
 
-require 'database/database.php';
+require '../database/database.php';
 
 if(isset($_POST['delete'])){
     if(isset($_POST['sku'])){
@@ -10,10 +10,10 @@ if(isset($_POST['delete'])){
             $deletion->deleteProduct($sku);
         }
 
-        header("location: index.php?error=none");
+        header("location: http://localhost/task//scripts/index.php?error=none");
     
 }else{
     
-    header("location: index.php");
+    header("location: http://localhost/task//scripts/index.php");
 }
 }
