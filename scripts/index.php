@@ -14,8 +14,10 @@
     src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
+    <!--js link-->
+    <script src="script.js" defer></script>
     <!--css file-->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <!--bootstrap link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -32,8 +34,9 @@
               <h5 class="navbar-text fw-bold">Product List</h5>
             </div> 
             <div class="container-fluid justify-content-end">
-              <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/add-product">ADD</a></button>
-            <form id="cards-form" action="code_for_deleting.php" method="post">
+              <!--<button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/add-product">ADD</a></button>-->
+              <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button">ADD</button>
+            <form id="cards-form" action="product_deletion.php" method="post">
               <button id="delete-product-btn" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
             </form>
             </div>
@@ -60,6 +63,7 @@
               </label>
               </div>
                 <div class="card-body text-center">
+                      <!--<h5 class="card-title"><?php echo $product->getSku(); ?></h5>-->
                       <h5 class="card-title"><?php echo $product['sku']; ?></h5>
                       <h6 class="card-text"><?php echo $product['name']; ?></h6>
                       <h6 class="card-text"><?php echo number_format($product['price'], 2); ?></h6>

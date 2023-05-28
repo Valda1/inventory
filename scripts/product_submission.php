@@ -27,16 +27,37 @@ if(isset($_POST["save"])){
             exit();
         }elseif(empty($error)){
             if($productType == 'DVD-disc'){
+                $DVD = new DVD();
+                $DVD->setSKU($sku);
+                $DVD->setName($name);
+                $DVD->setPrice($price);
+                $DVD->setProductType($productType);
+                $DVD->setSize($size);
+
                 $PC = new ProductController();
                 $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);
                 exit();
             }elseif($productType == 'Book'){
                 $PC = new ProductController();
                 $book = $PC->createBook($sku, $name, $price, $productType, $weight);
+                /*$book = new Book();
+                $book->setSKU($_POST['sku']);
+                $book->setName($_POST['name']);
+                $book->setPrice($_POST['price']);
+                $book->setProductType($_POST['productType']);
+                $book->setWeight($_POST['weight']);*/
                 exit();
             }elseif($productType == 'Furniture'){
                 $PC = new ProductController();
                 $furniture = $PC->createFurniture($sku, $name, $price, $productType, $height, $length, $width);
+                /*$furniture = new Furniture();
+                $furniture->setSKU($_POST['sku']);
+                $furniture->setName($_POST['name']);
+                $furniture->setPrice($_POST['price']);
+                $furniture->setProductType($_POST['productType']);
+                $furniture->setHeight($_POST['height']);
+                $furniture->setLength($_POST['length']);
+                $furniture->setWidth($_POST['width']);*/
                 exit();
             }
 

@@ -23,6 +23,62 @@ class Furniture extends Product{
         $this->width = $width;
     }
 
+    public function setSku($sku) { 
+        $this->sku = $sku; 
+    }
+
+    public function setName($name) { 
+        $this->name = $name; 
+    }
+
+    public function setPrice($price) { 
+        $this->price = $price; 
+    }
+
+    public function setPorductType($productType) { 
+        $this->productType = $productType; 
+    }
+
+    public function setHeight($height) { 
+        $this->height = $height; 
+    }
+
+    public function setLength($length) { 
+        $this->length = $length; 
+    }
+
+    public function setWidth($width) { 
+        $this->height = $width; 
+    }
+
+    public function getSku() {
+        return $this->sku;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getPrice() {
+        return $this->price;
+    }
+
+    public function getProductType() {
+        return $this->productType;
+    }
+
+    public function getHeight() {
+        return $this->height;
+    }
+
+    public function getlength() {
+        return $this->length;
+    }
+
+    public function getWidth() {
+        return $this->width;
+    }
+
     public function setProduct($sku, $name, $price, $productType, $height = null, $length = null, $width = null){
         $DB = new Database();
         try{

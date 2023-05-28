@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    $("#add-product-btn").click(function(){
+        //window.location.replace("/add-product");
+        window.location.replace("http://localhost/task//scripts/add-product.php");
+    })
+});
+
+$(document).ready(function(){
     $("select").change(function(){
         $(this).find("option:selected").each(function(){
             var optionValue = $(this).attr("value");
@@ -17,6 +24,7 @@ $(document).ready(function(){
         window.location.replace("http://localhost/task//scripts/index.php");
     })
 });
+
 
 $(document).ready(function(){
     $("#product_form").submit(function(event){
@@ -47,6 +55,8 @@ $(document).ready(function(){
             let errorMsg = document.getElementById('error-msg');
             if(errorMsg.textContent.trim() === ''){
                 window.location.replace("http://localhost/task//scripts/index.php?error=none");
+            }else{
+                $("#icon").attr("hidden", false);
             }
 
         })

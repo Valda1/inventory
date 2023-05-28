@@ -15,5 +15,21 @@ abstract class Product{
 
     abstract protected function setProduct($sku, $name, $price, $productType);
 
+    public function getSku() {
+        return $this->sku;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getPrice() {
+        return $this->price;
+    }
+
+    public function getProductType() {
+        return $this->productType;
+    }
+
 
 }

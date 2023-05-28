@@ -21,6 +21,8 @@
     <!--bootstrap css link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+     <!--font awesome link-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <!--css link-->
      <link rel="stylesheet" href="../styles/style.css">
      <!--favicon-->
@@ -49,7 +51,11 @@
 <div class="container mt-4">
 <form id="product_form" name="product_form" action="product_submission.php" method="post">
 
-  <div id="error-msg" class="col-sm-3 text-center error fw-bold rounded ring neon-purple"></div>
+<div class="d-flex flex-row">
+  <i id="icon" class="fa fa-exclamation-circle" style="font-size:36px;color:red" hidden></i>
+  <div id="error-msg" class="col-sm-3 text-center error fw-bold rounded mb-4"></div>
+</div>
+ 
 
   <fieldset>
       <div class="row mb-3 g-3 align-items-center">
