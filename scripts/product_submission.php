@@ -27,21 +27,49 @@ if(isset($_POST["save"])){
             exit();
         }elseif(empty($error)){
             if($productType == 'DVD-disc'){
-                $DVD = new DVD();
+                /*$DVD = new DVD();
                 $DVD->setSKU($sku);
                 $DVD->setName($name);
                 $DVD->setPrice($price);
                 $DVD->setProductType($productType);
-                $DVD->setSize($size);
+                $DVD->setSize($size);*/
 
                 $PC = new ProductController();
                 $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);
                 exit();
             }elseif($productType == 'Book'){
-                $PC = new ProductController();
-                $book = $PC->createBook($sku, $name, $price, $productType, $weight);
-                /*$book = new Book();
-                $book->setSKU($_POST['sku']);
+                /*$PC = new ProductController();
+                $book = $PC->createBook($sku, $name, $price, $productType, $weight);*/
+
+                $DB = new Database();
+          $products = $DB->getAllProducts();
+
+
+          foreach($products as $product){
+            echo $product;
+            //$obj = (array) $product;
+            
+            //print_r($product->sku);
+            //echo $product->getSku();
+            //echo $product->getName();
+            //echo $product->getSku();
+            //print_r($product->getName());
+            //print_r($product->price);
+                
+            
+            //print_r(call_user_method($product->getSku()));
+          }
+                /*$obj = new Book();
+                $obj->setSKU($sku);
+                $obj->setName($name);
+                $obj->setPrice($price);
+                $obj->setProductType($productType);
+                $obj->setWeight($weight);
+
+                $book = $obj->setProduct($obj);*/
+
+                //$book = new Book();
+                /*$book->setSKU($_POST['sku']);
                 $book->setName($_POST['name']);
                 $book->setPrice($_POST['price']);
                 $book->setProductType($_POST['productType']);

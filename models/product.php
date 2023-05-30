@@ -6,14 +6,15 @@ abstract class Product{
     protected float $price;
     protected string $productType;
 
-    protected function __construct($sku, $name, $price, $productType){
+    /*protected function __construct(){
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
         $this->productType = $productType;
-    }
+    }*/
 
-    abstract protected function setProduct($sku, $name, $price, $productType);
+    //abstract protected function setProduct($sku, $name, $price, $productType);
+    //abstract protected function setProduct();
 
     public function getSku() {
         return $this->sku;

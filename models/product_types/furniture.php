@@ -13,7 +13,7 @@ class Furniture extends Product{
     public int $length;
     public int $width;
 
-    public function __construct($sku, $name, $price, $productType, $height, $length, $width){
+    /*public function __construct(){
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
@@ -21,7 +21,7 @@ class Furniture extends Product{
         $this->height = $height;
         $this->length = $length;
         $this->width = $width;
-    }
+    }*/
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -79,7 +79,7 @@ class Furniture extends Product{
         return $this->width;
     }
 
-    public function setProduct($sku, $name, $price, $productType, $height = null, $length = null, $width = null){
+    /*public function setProduct($sku, $name, $price, $productType, $height = null, $length = null, $width = null){
         $DB = new Database();
         try{
             $query = "INSERT INTO products (sku, name, price, product_type, height_cm, length_cm, width_cm) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -88,6 +88,10 @@ class Furniture extends Product{
         }catch(PDOException $e){
             $e->getMessage();
         }
+        
+    }*/
+
+    public function setProduct(){
         
     }
     

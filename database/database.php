@@ -26,9 +26,10 @@ class Database{
             $query = "SELECT * FROM products ORDER BY sku ASC";
             $stmt = $this->connect()->prepare($query);
             $stmt->execute();
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            return $results;
+            return $data = json_decode(json_encode($results));
+            //return $results;
         }catch(PDOException $e){
             $e->getMessage();
         }

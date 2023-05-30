@@ -11,13 +11,13 @@ class DVD extends Product{
     public string $productType;
     public int $size;
 
-    public function __construct($sku, $name, $price, $productType, $size){
+    /*public function __construct(){
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
         $this->productType = $productType;
         $this->size = $size;
-    }
+    }*/
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -31,7 +31,7 @@ class DVD extends Product{
         $this->price = $price; 
     }
 
-    public function setPorductType($productType) { 
+    public function setProductType($productType) { 
         $this->productType = $productType; 
     }
 
@@ -59,7 +59,7 @@ class DVD extends Product{
         return $this->weight;
     }
 
-    public function setProduct($sku, $name, $price, $productType, $size = null){
+    /*public function setProduct($sku, $name, $price, $productType, $size = null){
         $DB = new Database();
 
         try{
@@ -69,6 +69,10 @@ class DVD extends Product{
         }catch(PDOException $e){
             $e->getMessage();
         }
+        
+    }*/
+
+    public function setProduct(){
         
     }
 

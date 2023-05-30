@@ -67,8 +67,21 @@ class ProductController{
 }
 
 public function createBook($sku, $name, $price, $productType, $weight){
-    $obj = new Book($sku, $name, $price, $productType, $weight);
-    $book = $obj->setProduct($sku, $name, $price, $productType, $weight);
+    //$obj = new Book($sku, $name, $price, $productType, $weight);
+    $obj = new Book();
+    $obj->setSKU($sku);
+    $obj->setName($name);
+    $obj->setPrice($price);
+    $obj->setProductType($productType);
+    $obj->setWeight($weight);
+    //$data = json_encode($obj, JSON_FORCE_OBJECT);
+    //$data = json_encode($obj);
+    //print_r($obj);
+    $data = (array)$obj;
+    //print_r($data);
+    $book = $obj->setProduct($data);
+    //$book = $obj->setProduct($obj);
+    //$book = $obj->setProduct($sku, $name, $price, $productType, $weight);
 }
 
 public function createDVD($sku, $name, $price, $productType, $size){

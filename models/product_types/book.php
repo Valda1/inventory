@@ -11,13 +11,13 @@ class Book extends Product{
     public string $productType;
     public int $weight;
 
-    public function __construct($sku, $name, $price, $productType, $weight){
+    /*public function __construct(){
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
         $this->productType = $productType;
         $this->weight = $weight;
-    }
+    }*/
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -31,7 +31,7 @@ class Book extends Product{
         $this->price = $price; 
     }
 
-    public function setPorductType($productType) { 
+    public function setProductType($productType) { 
         $this->productType = $productType; 
     }
 
@@ -39,7 +39,7 @@ class Book extends Product{
         $this->weight = $weight; 
     }
 
-    public function getSku() {
+    public function get_sku() {
         return $this->sku;
     }
 
@@ -59,12 +59,20 @@ class Book extends Product{
         return $this->weight;
     }
 
-    public function setProduct($sku, $name, $price, $productType, $weight = null){
+    //public function setProduct($sku, $name, $price, $productType, $weight = null){
+    public function setProduct($book){
         $DB = new Database();
         try{
-            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (?, ?, ?, ?, ?)";
+            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (:sku, :name, :price, :productType, :weight)";
             $stmt = $DB->connect()->prepare($query);
-            $stmt->execute([$sku, $name, $price, $productType, $weight]);
+            //$stmt->execute([$sku, $name, $price, $productType, $weight]);
+            //$stmt->bindParam($book['sku'], $book['name'], $book['price'], $book['productType'], $book['weight']);
+            $stmt->bindParam(':sku', $book['sku']);
+            $stmt->bindParam(':name', $book['name']);
+            $stmt->bindParam(':price', $book['price']);
+            $stmt->bindParam(':productType', $book['productType']);
+            $stmt->bindParam(':weight', $book['weight']);
+            $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();
         }
