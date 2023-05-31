@@ -5,19 +5,39 @@ require_once '../models/product.php';
 
 class Book extends Product{
 
-    public string $sku;
-    public string $name;
-    public float $price;
-    public string $productType;
-    public int $weight;
+    protected string $sku;
+    protected string $name;
+    protected float $price;
+    protected string $productType;
+    protected int $weight;
 
-    /*public function __construct(){
+   /*public function __construct($sku, $name, $price, $productType, $weight){
         $this->sku = $sku;
         $this->name = $name;
         $this->price = $price;
         $this->productType = $productType;
         $this->weight = $weight;
     }*/
+
+    /*public function buildObject(){
+        $book = new Book;
+        $book->sku = $sku;
+        $book->name = $name;
+        $book->price = $price;
+        $book->productType = $productType;
+        $book->weight = $weight;
+        return $book;
+
+    }*/
+
+    /*public function __set($sku, $value){
+        $this->sku = $value;
+    }
+
+    public function __get($sku){
+        return $this->$sku;
+    }*/
+
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -39,7 +59,7 @@ class Book extends Product{
         $this->weight = $weight; 
     }
 
-    public function get_sku() {
+    public function getSku() {
         return $this->sku;
     }
 
@@ -63,15 +83,16 @@ class Book extends Product{
     public function setProduct($book){
         $DB = new Database();
         try{
-            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (:sku, :name, :price, :productType, :weight)";
+            //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (:sku, :name, :price, :productType, :weight)";
+            //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('{$book->getSku()}', '{$book->getName()}', '{$book->getPrice()}', '{$book->getProductType()}', '{$book->getWeight()})";
+            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('".$book->getSku()."', '".$book->getName()."', '".$book->getPrice()."', '".$book->getProductType()."', '".$book->getWeight()."')";
             $stmt = $DB->connect()->prepare($query);
             //$stmt->execute([$sku, $name, $price, $productType, $weight]);
-            //$stmt->bindParam($book['sku'], $book['name'], $book['price'], $book['productType'], $book['weight']);
-            $stmt->bindParam(':sku', $book['sku']);
+            /*$stmt->bindParam(':sku', $book['sku']);
             $stmt->bindParam(':name', $book['name']);
             $stmt->bindParam(':price', $book['price']);
             $stmt->bindParam(':productType', $book['productType']);
-            $stmt->bindParam(':weight', $book['weight']);
+            $stmt->bindParam(':weight', $book['weight']);*/
             $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();
@@ -79,5 +100,6 @@ class Book extends Product{
         
     }
 
-    
-}
+        
+
+    }

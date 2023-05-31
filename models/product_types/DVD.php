@@ -5,11 +5,11 @@ require_once '../models/product.php';
 
 class DVD extends Product{
 
-    public string $sku;
-    public string $name;
-    public float $price;
-    public string $productType;
-    public int $size;
+    protected string $sku;
+    protected string $name;
+    protected float $price;
+    protected string $productType;
+    protected int $size;
 
     /*public function __construct(){
         $this->sku = $sku;
@@ -59,6 +59,18 @@ class DVD extends Product{
         return $this->weight;
     }
 
+    public function setProduct($DVD){
+        $DB = new Database();
+        try{
+            $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES ('".$DVD->getSku()."', '".$DVD->getName()."', '".$DVD->getPrice()."', '".$DVD->getProductType()."', '".$DVD->getSize()."')";
+            $stmt = $DB->connect()->prepare($query);
+            $stmt->execute();
+        }catch(PDOException $e){
+            $e->getMessage();
+        }  
+    }
+}
+
     /*public function setProduct($sku, $name, $price, $productType, $size = null){
         $DB = new Database();
 
@@ -71,11 +83,3 @@ class DVD extends Product{
         }
         
     }*/
-
-    public function setProduct(){
-        
-    }
-
-    
-    
-}

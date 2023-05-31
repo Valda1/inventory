@@ -5,13 +5,13 @@ require_once '../models/product.php';
 
 class Furniture extends Product{
 
-    public string $sku;
-    public string $name;
-    public float $price;
-    public string $productType;
-    public int $height;
-    public int $length;
-    public int $width;
+    protected string $sku;
+    protected string $name;
+    protected float $price;
+    protected string $productType;
+    protected int $height;
+    protected int $length;
+    protected int $width;
 
     /*public function __construct(){
         $this->sku = $sku;
@@ -79,6 +79,19 @@ class Furniture extends Product{
         return $this->width;
     }
 
+    public function setProduct($furniture){
+        $DB = new Database();
+        try{
+            $query = "INSERT INTO products (sku, name, price, product_type, height_cm, length_cm, width_cm) VALUES ('".$furniture->getSku()."', '".$furniture->getName()."', '".$furniture->getPrice()."', '".$furniture->getProductType()."', '".$furniture->getHeight()."', , '".$furniture->getlength()."', , '".$furniture->getWidth()."')";
+            $stmt = $DB->connect()->prepare($query);
+            $stmt->execute();
+        }catch(PDOException $e){
+            $e->getMessage();
+        }  
+    }
+
+}
+
     /*public function setProduct($sku, $name, $price, $productType, $height = null, $length = null, $width = null){
         $DB = new Database();
         try{
@@ -90,9 +103,3 @@ class Furniture extends Product{
         }
         
     }*/
-
-    public function setProduct(){
-        
-    }
-    
-}

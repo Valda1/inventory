@@ -74,26 +74,46 @@ public function createBook($sku, $name, $price, $productType, $weight){
     $obj->setPrice($price);
     $obj->setProductType($productType);
     $obj->setWeight($weight);
+
+    $book = $obj->setProduct($obj);
+    return $book;
+
+    /*$data = (array)$obj;
+    $book = $obj->setProduct($data);*/
+
     //$data = json_encode($obj, JSON_FORCE_OBJECT);
     //$data = json_encode($obj);
     //print_r($obj);
-    $data = (array)$obj;
+    
     //print_r($data);
-    $book = $obj->setProduct($data);
     //$book = $obj->setProduct($obj);
     //$book = $obj->setProduct($sku, $name, $price, $productType, $weight);
 }
 
 public function createDVD($sku, $name, $price, $productType, $size){
-    $obj = new DVD($sku, $name, $price, $productType, $size);
-    $DVD = $obj->setProduct($sku, $name, $price, $productType, $size);
+    $obj = new DVD();
+    $obj->setSKU($sku);
+    $obj->setName($name);
+    $obj->setPrice($price);
+    $obj->setProductType($productType);
+    $obj->setSize($size);
+
+    $DVD = $obj->setProduct($obj);
+    return $DVD;
 }
 
 public function createFurniture($sku, $name, $price, $productType, $height, $length, $width){
-    $obj = new Furniture($sku, $name, $price, $productType, $height, $length, $width);
-    $furniture = $obj->setProduct($sku, $name, $price, $productType, $height, $length, $width);
+    $obj = new Furniture();
+    $obj->setSKU($sku);
+    $obj->setName($name);
+    $obj->setPrice($price);
+    $obj->setProductType($productType);
+    $obj->setHeight($height);
+    $obj->setLength($length);
+    $obj->setWidth($width);
+
+    $furniture = $obj->setProduct($obj);
+    return $furniture;
 }
-
-
 
 }

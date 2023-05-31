@@ -26,14 +26,36 @@ class Database{
             $query = "SELECT * FROM products ORDER BY sku ASC";
             $stmt = $this->connect()->prepare($query);
             $stmt->execute();
-            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
 
-            return $data = json_decode(json_encode($results));
-            //return $results;
+            /*$query = "SELECT sku, name, price, productType, weight FROM products ORDER BY sku ASC";
+            $stmt = $DB->connect()->prepare($query);
+            $stmt->execute();
+            //$stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+            $stmt->fetchAll(PDO::FETCH_FUNC, "Book::buildObject");*/
+
+            
+            /*$book = new Book();
+            $query = "SELECT sku, name, price, productType, weight FROM products ORDER BY sku ASC";
+            $stmt = $this->connect()->prepare($query);
+            $stmt->execute();
+            //$stmt->setFetchMode(PDO::FETCH_CLASS, 'Book');
+            $stmt->fetch(PDO::FETCH_INTO, $book);
+            echo "HELLO";*/
+            /*foreach($stmt as $a){
+                print_r($a);
+            }
+
+            print_r($book);*/
+
+            //another try
+            /*$query = $this->connect()->query("SELECT * FROM products ORDER BY sku ASC");
+            $results = $query->fetch(PDO::FETCH_ASSOC);
+            return $results;*/
         }catch(PDOException $e){
             $e->getMessage();
         }
-        
 
     }
 
