@@ -11,13 +11,6 @@ class DVD extends Product{
     protected string $productType;
     protected int $size;
 
-    /*public function __construct(){
-        $this->sku = $sku;
-        $this->name = $name;
-        $this->price = $price;
-        $this->productType = $productType;
-        $this->size = $size;
-    }*/
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -56,30 +49,22 @@ class DVD extends Product{
     }
 
     public function getSize() {
-        return $this->weight;
+        return $this->size;
     }
 
-    public function setProduct($DVD){
+    public function setProduct($DVD = null){
         $DB = new Database();
         try{
-            $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES ('".$DVD->getSku()."', '".$DVD->getName()."', '".$DVD->getPrice()."', '".$DVD->getProductType()."', '".$DVD->getSize()."')";
+            $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES (?, ?, ?, ?, ?)";
             $stmt = $DB->connect()->prepare($query);
+            $stmt->bindValue(1, $DVD->getSku());
+            $stmt->bindValue(2, $DVD->getName());
+            $stmt->bindValue(3, $DVD->getPrice());
+            $stmt->bindValue(4, $DVD->getProductType());
+            $stmt->bindValue(5, $DVD->getSize());
             $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();
         }  
     }
 }
-
-    /*public function setProduct($sku, $name, $price, $productType, $size = null){
-        $DB = new Database();
-
-        try{
-            $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES (?, ?, ?, ?, ?)";
-            $stmt = $DB->connect()->prepare($query);
-            $stmt->execute([$sku, $name, $price, $productType, $size]);
-        }catch(PDOException $e){
-            $e->getMessage();
-        }
-        
-    }*/

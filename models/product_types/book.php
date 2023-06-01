@@ -11,33 +11,6 @@ class Book extends Product{
     protected string $productType;
     protected int $weight;
 
-   /*public function __construct($sku, $name, $price, $productType, $weight){
-        $this->sku = $sku;
-        $this->name = $name;
-        $this->price = $price;
-        $this->productType = $productType;
-        $this->weight = $weight;
-    }*/
-
-    /*public function buildObject(){
-        $book = new Book;
-        $book->sku = $sku;
-        $book->name = $name;
-        $book->price = $price;
-        $book->productType = $productType;
-        $book->weight = $weight;
-        return $book;
-
-    }*/
-
-    /*public function __set($sku, $value){
-        $this->sku = $value;
-    }
-
-    public function __get($sku){
-        return $this->$sku;
-    }*/
-
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -79,20 +52,22 @@ class Book extends Product{
         return $this->weight;
     }
 
-    //public function setProduct($sku, $name, $price, $productType, $weight = null){
-    public function setProduct($book){
+    public function setProduct($book = null){
         $DB = new Database();
         try{
             //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (:sku, :name, :price, :productType, :weight)";
             //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('{$book->getSku()}', '{$book->getName()}', '{$book->getPrice()}', '{$book->getProductType()}', '{$book->getWeight()})";
-            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('".$book->getSku()."', '".$book->getName()."', '".$book->getPrice()."', '".$book->getProductType()."', '".$book->getWeight()."')";
+            
+            //WORKS
+            //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('".$book->getSku()."', '".$book->getName()."', '".$book->getPrice()."', '".$book->getProductType()."', '".$book->getWeight()."')";
+            
+            $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (?, ?, ?, ?, ?)";
             $stmt = $DB->connect()->prepare($query);
-            //$stmt->execute([$sku, $name, $price, $productType, $weight]);
-            /*$stmt->bindParam(':sku', $book['sku']);
-            $stmt->bindParam(':name', $book['name']);
-            $stmt->bindParam(':price', $book['price']);
-            $stmt->bindParam(':productType', $book['productType']);
-            $stmt->bindParam(':weight', $book['weight']);*/
+            $stmt->bindValue(1, $book->getSku());
+            $stmt->bindValue(2, $book->getName());
+            $stmt->bindValue(3, $book->getPrice());
+            $stmt->bindValue(4, $book->getProductType());
+            $stmt->bindValue(5, $book->getWeight());
             $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();

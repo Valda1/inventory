@@ -58,7 +58,8 @@
  
 
   <fieldset>
-      <div class="row mb-3 g-3 align-items-center">
+      <div class="d-flex flex-row">
+      <!--<div class="row mb-3 g-3 align-items-center">-->
           <div class="col-sm-2 col-lg-1">
               <label for="sku" class="col-form-label">SKU</label>
           </div>
@@ -89,7 +90,8 @@
       </div>
   </fieldset>
 
-  <div class="row mb-5 g-3 align-items-center">
+  <!--<div class="row mb-5 g-3 align-items-center">-->
+  <div class="d-flex flex-row mb-5 g-3"> 
     <div class="col-sm-2 col-lg-1">
         <label for="type">Type Switcher</label>
     </div>   
@@ -126,6 +128,7 @@
         <div class="row mb-1">
           <legend><em>Please, provide weight:</em></legend>
         </div>
+        <div class="d-flex flex-row">
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
@@ -133,6 +136,7 @@
           <input id="weight" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
         </div>
       </div>
+</div>
 </fieldset>
 
 <fieldset>
@@ -141,6 +145,7 @@
         <div class="row mb-1">
           <legend><em>Please, provide dimentions:</em></legend>
         </div>
+        <div class="d-flex flex-row">
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
@@ -148,8 +153,11 @@
           <input id="height" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
         </div>
       </div>
+</div>
 
+      <!--<div class="d-flex flex-row mb-5 g-3 myDiv Furniture" id="showFurniture">-->
       <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
+      <div class="d-flex flex-row">
         <div class="col-sm-2 col-lg-1">
           <label for="width" class="col-form-label">Width (CM)</label>
         </div>
@@ -157,8 +165,10 @@
           <input id="width" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
         </div>
       </div>
+</div>
 
       <div class="row mb-3 g-3 align-items-center myDiv Furniture" id="showFurniture">
+      <div class="d-flex flex-row">
         <div class="col-sm-2 col-lg-1">
           <label for="length" class="col-form-label">Length (CM)</label>
         </div>
@@ -166,6 +176,7 @@
           <input id="length" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
         </div>
       </div>
+</div>
 
 </fieldset>
  

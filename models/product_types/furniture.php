@@ -13,15 +13,6 @@ class Furniture extends Product{
     protected int $length;
     protected int $width;
 
-    /*public function __construct(){
-        $this->sku = $sku;
-        $this->name = $name;
-        $this->price = $price;
-        $this->productType = $productType;
-        $this->height = $height;
-        $this->length = $length;
-        $this->width = $width;
-    }*/
 
     public function setSku($sku) { 
         $this->sku = $sku; 
@@ -35,7 +26,7 @@ class Furniture extends Product{
         $this->price = $price; 
     }
 
-    public function setPorductType($productType) { 
+    public function setProductType($productType) { 
         $this->productType = $productType; 
     }
 
@@ -48,7 +39,7 @@ class Furniture extends Product{
     }
 
     public function setWidth($width) { 
-        $this->height = $width; 
+        $this->width = $width; 
     }
 
     public function getSku() {
@@ -71,7 +62,7 @@ class Furniture extends Product{
         return $this->height;
     }
 
-    public function getlength() {
+    public function getLength() {
         return $this->length;
     }
 
@@ -79,11 +70,18 @@ class Furniture extends Product{
         return $this->width;
     }
 
-    public function setProduct($furniture){
+    public function setProduct($furniture = null){
         $DB = new Database();
         try{
-            $query = "INSERT INTO products (sku, name, price, product_type, height_cm, length_cm, width_cm) VALUES ('".$furniture->getSku()."', '".$furniture->getName()."', '".$furniture->getPrice()."', '".$furniture->getProductType()."', '".$furniture->getHeight()."', , '".$furniture->getlength()."', , '".$furniture->getWidth()."')";
+            $query = "INSERT INTO products (sku, name, price, product_type, height_cm, length_cm, width_cm) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = $DB->connect()->prepare($query);
+            $stmt->bindValue(1, $furniture->getSku());
+            $stmt->bindValue(2, $furniture->getName());
+            $stmt->bindValue(3, $furniture->getPrice());
+            $stmt->bindValue(4, $furniture->getProductType());
+            $stmt->bindValue(5, $furniture->getHeight());
+            $stmt->bindValue(6, $furniture->getLength());
+            $stmt->bindValue(7, $furniture->getWidth());
             $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();
@@ -91,15 +89,3 @@ class Furniture extends Product{
     }
 
 }
-
-    /*public function setProduct($sku, $name, $price, $productType, $height = null, $length = null, $width = null){
-        $DB = new Database();
-        try{
-            $query = "INSERT INTO products (sku, name, price, product_type, height_cm, length_cm, width_cm) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $DB->connect()->prepare($query);
-            $stmt->execute([$sku, $name, $price, $productType, $height, $length, $width]);
-        }catch(PDOException $e){
-            $e->getMessage();
-        }
-        
-    }*/

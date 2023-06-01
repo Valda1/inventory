@@ -53,32 +53,32 @@
           $DB = new Database();
           $products = $DB->getAllProducts();
 
-          foreach($products as $product){
-          ?>
+          foreach($products as $product){ echo '
+
           <div class="col-6 col-md-3">
             <div class="card border border-dark">
               <div class="px-3">
               <label class="form-check-label">
-                <input form="cards-form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="product[]" value="<?php print_r($product); ?>">
+                <input form="cards-form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="'; echo $product['sku'];'">
               </label>
               </div>
                 <div class="card-body text-center">
-                      <h5 class="card-title"><?php echo $product->sku; ?></h5>
-                      <h6 class="card-text"><?php echo $product->name; ?></h6>
-                      <h6 class="card-text"><?php echo number_format($product->price, 2); ?></h6>
-                      <h6 class="card-text"><?php if(!empty($product->size_mb)){ echo "Size: " . $product->size_mb . "MB";}; ?></h6>
-                      <h6 class="card-text"><?php if(!empty($product->weight_kg)){ echo "Weight: " . $product->weight_kg . "KG";}; ?></h6>
-                      <h6 class="card-text"><?php if(!empty($product->height_cm) && !empty($product->length_cm) && !empty($product->width_cm)){ echo "Dimentions: " . $product->height_cm . "x" . $product->length_cm . "x" . $product->width_cm;}; ?></h6>
+                      <h5 class="card-title">'; echo $product['sku']; '</h5>
+                      <h6 class="card-text">'; echo $product['name']; '</h6>
+                      <h6 class="card-text">'; echo number_format($product['price'], 2); '</h6>
+                      <h6 class="card-text">'; if(!empty($product['size_mb'])){ echo "Size: " . $product['size_mb'] . "MB";}; '</h6>
+                      <h6 class="card-text">'; if(!empty($product['weight_kg'])){ echo "Weight: " . $product['weight_kg'] . "KG";}; '</h6>
+                      <h6 class="card-text">'; if(!empty($product['height_cm']) && !empty($product['length_cm']) && !empty($product['width_cm'])){ echo "Dimentions: " . $product['height_cm'] . "x" . $product['length_cm'] . "x" . $product['width_cm'];};'</h6>
                 </div>
             </div>
-          </div>
-            <?php } ?>
+          </div>';
+} '
         </div>
         </form>
 
-</div>
+</div>';
 
-<?php
+
   include_once '../includes/footer.php';
 ?>
 

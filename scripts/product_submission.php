@@ -18,7 +18,7 @@ if(isset($_POST["save"])){
         $width = $_POST["width"];
 
         $PC = new ProductController();
-        $error = $PC->validateInput($sku, $name, $price, $productType, $size, $weight, $length, $height, $width);
+        $error = $PC->validateInput($sku, $name, $price, $productType, $size, $weight, $height, $length, $width);
 
         if(!empty($error)){
             foreach($error as $e){
@@ -27,8 +27,10 @@ if(isset($_POST["save"])){
             exit();
         }elseif(empty($error)){
             if($productType == 'DVD-disc'){
-                $PC = new ProductController();
-                $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);
+                $DB = new Database();
+                $DB->getAllProducts();
+                /*$PC = new ProductController();
+                $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);*/
                 exit();
             }elseif($productType == 'Book'){
                 $PC = new ProductController();
