@@ -1,8 +1,8 @@
 <?php
 
-include '../models/product_types/DVD.php';
-include '../models/product_types/book.php';
-include '../models/product_types/furniture.php';
+//include '../models/product_types/DVD.php';
+//include '../models/product_types/book.php';
+//include '../models/product_types/furniture.php';
 require '../controllers/product_controller.php';
 
 if(isset($_POST["save"])){
@@ -27,10 +27,8 @@ if(isset($_POST["save"])){
             exit();
         }elseif(empty($error)){
             if($productType == 'DVD-disc'){
-                $DB = new Database();
-                $DB->getAllProducts();
-                /*$PC = new ProductController();
-                $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);*/
+                $PC = new ProductController();
+                $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);
                 exit();
             }elseif($productType == 'Book'){
                 $PC = new ProductController();
@@ -39,14 +37,6 @@ if(isset($_POST["save"])){
             }elseif($productType == 'Furniture'){
                 $PC = new ProductController();
                 $furniture = $PC->createFurniture($sku, $name, $price, $productType, $height, $length, $width);
-                /*$furniture = new Furniture();
-                $furniture->setSKU($_POST['sku']);
-                $furniture->setName($_POST['name']);
-                $furniture->setPrice($_POST['price']);
-                $furniture->setProductType($_POST['productType']);
-                $furniture->setHeight($_POST['height']);
-                $furniture->setLength($_POST['length']);
-                $furniture->setWidth($_POST['width']);*/
                 exit();
             }
 

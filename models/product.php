@@ -1,12 +1,12 @@
 <?php
 
 abstract class Product{
-    protected string $sku;
-    protected string $name;
-    protected float $price;
-    protected string $productType;
+    private string $sku;
+    private string $name;
+    private float $price;
+    private string $productType;
 
-    abstract public function setProduct();
+    abstract public function setProduct($product);
 
     public function getSku() {
         return $this->sku;

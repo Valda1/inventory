@@ -23,28 +23,16 @@ class Database{
 
     public function getAllProducts(){
         try{
-            //$query = "SELECT sku, name, price, productType, size, weight, height, length, width FROM products ORDER BY sku ASC";
-            //Working thibg
+            $products = array();
             $query = "SELECT * FROM products ORDER BY sku ASC";
             $stmt = $this->connect()->prepare($query);
             $stmt->execute();
-            //$results = $stmt->fetch(PDO::FETCH_ASSOC);
-            //print_r($results);
 
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                 $products[] = $row;
             }
 
-            /*while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-                $products[] = $row;
-            }*/
-
-            //return $products; //working thing ends here
-
-            //another try
-            /*$query = $this->connect()->query("SELECT * FROM products ORDER BY sku ASC");
-            $results = $query->fetch(PDO::FETCH_ASSOC);
-            return $results;*/
+            return $products;
 
         }catch(PDOException $e){
             $e->getMessage();
@@ -52,16 +40,12 @@ class Database{
 
     }
 
-    public function deleteProduct($product){
+    public function deleteProduct($sku){
         try{
-            /*$query = "DELETE FROM products WHERE sku = ?";
-            $stmt = $this->connect()->prepare($query);
-            $stmt->execute([$sku]);*/
-
             $query = "DELETE FROM products WHERE sku = ?";
             $stmt = $this->connect()->prepare($query);
-            //$stmt->execute([$sku]);
-            $stmt->execute([$product->sku]);
+            $stmt->execute([$sku]);
+            
         }catch(PDOException $e){
             $e->getMessage();
         }

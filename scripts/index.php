@@ -59,7 +59,7 @@
             <div class="card border border-dark">
               <div class="px-3">
               <label class="form-check-label">
-                <input form="cards-form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="product[]" value="<?php print_r($product); ?>">
+                <input form="cards-form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="<?php echo $product->sku; ?>">
               </label>
               </div>
                 <div class="card-body text-center">

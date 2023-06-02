@@ -1,15 +1,14 @@
 <?php
 
-//require_once 'database/database.php';
-require_once '../models/product.php';
+//require_once '../database/database.php';
 
 class Book extends Product{
 
-    protected string $sku;
-    protected string $name;
-    protected float $price;
-    protected string $productType;
-    protected int $weight;
+    private string $sku;
+    private string $name;
+    private float $price;
+    private string $productType;
+    private int $weight;
 
 
     public function setSku($sku) { 
@@ -52,22 +51,16 @@ class Book extends Product{
         return $this->weight;
     }
 
-    public function setProduct($book = null){
+    public function setProduct($product){
         $DB = new Database();
         try{
-            //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (:sku, :name, :price, :productType, :weight)";
-            //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('{$book->getSku()}', '{$book->getName()}', '{$book->getPrice()}', '{$book->getProductType()}', '{$book->getWeight()})";
-            
-            //WORKS
-            //$query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES ('".$book->getSku()."', '".$book->getName()."', '".$book->getPrice()."', '".$book->getProductType()."', '".$book->getWeight()."')";
-            
             $query = "INSERT INTO products (sku, name, price, product_type, weight_kg) VALUES (?, ?, ?, ?, ?)";
             $stmt = $DB->connect()->prepare($query);
-            $stmt->bindValue(1, $book->getSku());
-            $stmt->bindValue(2, $book->getName());
-            $stmt->bindValue(3, $book->getPrice());
-            $stmt->bindValue(4, $book->getProductType());
-            $stmt->bindValue(5, $book->getWeight());
+            $stmt->bindValue(1, $product->getSku());
+            $stmt->bindValue(2, $product->getName());
+            $stmt->bindValue(3, $product->getPrice());
+            $stmt->bindValue(4, $product->getProductType());
+            $stmt->bindValue(5, $product->getWeight());
             $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();

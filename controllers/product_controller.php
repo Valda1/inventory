@@ -1,6 +1,9 @@
 <?php
 
 require '../database/database.php';
+require '../models/product_types/DVD.php';
+require '../models/product_types/book.php';
+require '../models/product_types/furniture.php';
 
 class ProductController{
 
@@ -14,46 +17,37 @@ class ProductController{
         $errorChar = "Please, provide the data of indicated type!";
 
         if(empty(trim($sku)) || empty(trim($name)) || empty($price) || empty($productType)){
-            //$errors[] = "Please, submit required data!";
             $errors[] = $errorEmpty;
         }
 
         if(!preg_match("/^[a-zA-Z]*$/", $name)){
-            //$errors[] = "Please, provide the data of indicated type!";
             $errors[] = $errorChar . "<br> Name must consist of letters only!";
         }
 
         if(!is_numeric($price)){
-            //$errors[] = "Please, provide the data of indicated type!";
             $errors[] = $errorChar;
         }
 
         if($productType == 'DVD-disc'){
             if(empty($size)){
-                //$errors[] = "Please, submit required data!";
                 $errors[] = $errorEmpty . "<br> Please, provide size!";
             }elseif(!is_numeric($size)){
-                //$errors[] = "Please, provide the data of indicated type!";
                 $errors[] = $errorChar;
             }
         }
 
         if($productType == 'Book'){
             if(empty($weight)){
-                //$errors[] = "Please, submit required data!";
                 $errors[] = $errorEmpty . "<br> Please, provide weight!";
             }elseif(!is_numeric($weight)){
-                //$errors[] = "Please, provide the data of indicated type!";
                 $errors[] = $errorChar;
             }
         }
 
         if($productType == 'Furniture'){
             if(empty($height) || empty($length) || empty($width)){
-                //$errors[] = "Please, submit required data!";
                 $errors[] = $errorEmpty . "<br> Please, provide dimentions!";
             }elseif(!is_numeric($height) || !is_numeric($length) || !is_numeric($width)){
-                //$errors[] = "Please, provide the data of indicated type!";
                 $errors[] = $errorChar;
             }
 
@@ -67,53 +61,41 @@ class ProductController{
 }
 
 public function createBook($sku, $name, $price, $productType, $weight){
-    //$obj = new Book($sku, $name, $price, $productType, $weight);
-    $obj = new Book();
-    $obj->setSKU($sku);
-    $obj->setName($name);
-    $obj->setPrice($price);
-    $obj->setProductType($productType);
-    $obj->setWeight($weight);
+    $book = new Book();
+    $book->setSKU($sku);
+    $book->setName($name);
+    $book->setPrice($price);
+    $book->setProductType($productType);
+    $book->setWeight($weight);
 
-    $book = $obj->setProduct($obj);
-    return $book;
-
-    /*$data = (array)$obj;
-    $book = $obj->setProduct($data);*/
-
-    //$data = json_encode($obj, JSON_FORCE_OBJECT);
-    //$data = json_encode($obj);
-    //print_r($obj);
-    
-    //print_r($data);
-    //$book = $obj->setProduct($obj);
-    //$book = $obj->setProduct($sku, $name, $price, $productType, $weight);
+    $product = $book->setProduct($book);
+    return $product;
 }
 
 public function createDVD($sku, $name, $price, $productType, $size){
-    $obj = new DVD();
-    $obj->setSKU($sku);
-    $obj->setName($name);
-    $obj->setPrice($price);
-    $obj->setProductType($productType);
-    $obj->setSize($size);
+    $DVD = new DVD();
+    $DVD->setSKU($sku);
+    $DVD->setName($name);
+    $DVD->setPrice($price);
+    $DVD->setProductType($productType);
+    $DVD->setSize($size);
 
-    $DVD = $obj->setProduct($obj);
-    return $DVD;
+    $product = $DVD->setProduct($DVD);
+    return $product;
 }
 
 public function createFurniture($sku, $name, $price, $productType, $height, $length, $width){
-    $obj = new Furniture();
-    $obj->setSKU($sku);
-    $obj->setName($name);
-    $obj->setPrice($price);
-    $obj->setProductType($productType);
-    $obj->setHeight($height);
-    $obj->setLength($length);
-    $obj->setWidth($width);
+    $furniture = new Furniture();
+    $furniture->setSKU($sku);
+    $furniture->setName($name);
+    $furniture->setPrice($price);
+    $furniture->setProductType($productType);
+    $furniture->setHeight($height);
+    $furniture->setLength($length);
+    $furniture->setWidth($width);
 
-    $furniture = $obj->setProduct($obj);
-    return $furniture;
+    $product = $furniture->setProduct($furniture);
+    return $product;
 }
 
 }

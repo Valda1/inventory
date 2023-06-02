@@ -1,12 +1,5 @@
-.error{
-    //background-color: #ff6242;
-    //background-color: #ff9999;
-    color: red;
-
-    //background-image: url('https://i.imgur.com/Z8q7ww7.png'); //warning
-    //background-image: url('../img/error-icon.png');
-    //background-repeat: no-repeat;
-    //background-image: url('https://i.imgur.com/GnyDvKN.png'); //error
+html{
+    scroll-behavior: smooth;
 }
 
 body{
@@ -14,3 +7,8 @@ body{
     flex-direction: column;
     min-height: 100vh
 }
+
+.error{
+    //color: red;
+}
+

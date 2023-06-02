@@ -1,15 +1,15 @@
 <?php
 
-//require_once 'database/database.php';
+//require_once '../database/database.php';
 require_once '../models/product.php';
 
 class DVD extends Product{
 
-    protected string $sku;
-    protected string $name;
-    protected float $price;
-    protected string $productType;
-    protected int $size;
+    private string $sku;
+    private string $name;
+    private float $price;
+    private string $productType;
+    private int $size;
 
 
     public function setSku($sku) { 
@@ -52,16 +52,16 @@ class DVD extends Product{
         return $this->size;
     }
 
-    public function setProduct($DVD = null){
+    public function setProduct($product){
         $DB = new Database();
         try{
             $query = "INSERT INTO products (sku, name, price, product_type, size_mb) VALUES (?, ?, ?, ?, ?)";
             $stmt = $DB->connect()->prepare($query);
-            $stmt->bindValue(1, $DVD->getSku());
-            $stmt->bindValue(2, $DVD->getName());
-            $stmt->bindValue(3, $DVD->getPrice());
-            $stmt->bindValue(4, $DVD->getProductType());
-            $stmt->bindValue(5, $DVD->getSize());
+            $stmt->bindValue(1, $product->getSku());
+            $stmt->bindValue(2, $product->getName());
+            $stmt->bindValue(3, $product->getPrice());
+            $stmt->bindValue(4, $product->getProductType());
+            $stmt->bindValue(5, $product->getSize());
             $stmt->execute();
         }catch(PDOException $e){
             $e->getMessage();
