@@ -1,9 +1,9 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
     $("#add-product-btn").click(function(){
         window.location.replace("/add-product");
         //window.location.replace("http://localhost/task//scripts/add-product.php");
     })
-});
+});*/
 
 $(document).ready(function(){
     $("select").change(function(){
@@ -21,7 +21,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#cancelBtn").click(function(){
-        window.location.replace("http://localhost/task//scripts/index.php");
+        //window.location.replace("http://localhost/task//scripts/index.php");
+        window.location.replace("http://juniortask.valda.bimbirule.com/");
+
+        
     })
 });
 
@@ -54,7 +57,8 @@ $(document).ready(function(){
         function(){
             let errorMsg = document.getElementById('error-msg');
             if(errorMsg.textContent.trim() === ''){
-                window.location.replace("http://localhost/task//scripts/index.php?error=none");
+                //window.location.replace("http://localhost/task//scripts/index.php?error=none");
+                window.location.replace("http://juniortask.valda.bimbirule.com?error=none");
             }else{
                 $("#icon").attr("hidden", false);
             }

@@ -1,5 +1,5 @@
 <?php
-  require '../controllers/product_controller.php';
+  require 'controllers/product_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,16 +17,16 @@
     <!--ajax link-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--javasript link-->
-    <script src="script.js" defer></script>
+    <script src="scripts/script.js" defer></script>
     <!--bootstrap css link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--font awesome link-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <!--css link-->
-     <link rel="stylesheet" href="../styles/style.css">
+     <link rel="stylesheet" href="styles/style.css">
      <!--favicon-->
-     <link rel="icon" type="image/x-icon" href="../styles/img/favicon.ico">
+     <link rel="icon" type="image/x-icon" href="styles/img/favicon.ico">
 
 </head>
 <body>
@@ -187,7 +187,7 @@
 </div>
 
 <?php
-  include_once '../includes/footer.php';
+  include_once 'includes/footer.php';
 ?>
 
 </body>
