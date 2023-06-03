@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXIST products{
+CREATE TABLE products(
     sku VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     price FLOAT NOT NULL,
@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXIST products{
     height_cm INT NULL,
     length_cm INT NULL,
     width_cm INT NULL
-}
+)

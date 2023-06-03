@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Prpduct List</title>
+    <title>Product List</title>
     <!--jquery cdn link-->
     <script
     src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -36,8 +36,8 @@
             <div class="container-fluid justify-content-end">
               <!--<button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="/add-product">ADD</a></button>-->
               <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button">ADD</button>
-            <form id="cards-form" action="product_deletion.php" method="post">
-              <button id="delete-product-btn" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
+            <form>
+              <button id="delete-product-btn" form="cards_form" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
             </form>
             </div>
           </nav>
@@ -46,10 +46,9 @@
 </header>
 
       <div class="container my-5">
-        <form id="cards-form" action="product_deletion.php" method="post">
+        <form id="cards_form" action="product_deletion.php" method="post">
         <div class="row gy-3">
           <?php
-
           $DB = new Database();
           $products = $DB->getAllProducts();
 
@@ -59,7 +58,7 @@
             <div class="card border border-dark">
               <div class="px-3">
               <label class="form-check-label">
-                <input form="cards-form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="<?php echo $product->sku; ?>">
+                <input form="cards_form" class="delete-chechbox form-check-input border border-dark mt-3" type="checkbox" name="sku[]" value="<?php echo $product->sku; ?>">
               </label>
               </div>
                 <div class="card-body text-center">

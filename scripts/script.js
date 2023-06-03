@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#add-product-btn").click(function(){
-        //window.location.replace("/add-product");
-        window.location.replace("http://localhost/task//scripts/add-product.php");
+        window.location.replace("/add-product");
+        //window.location.replace("http://localhost/task//scripts/add-product.php");
     })
 });
 
