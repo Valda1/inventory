@@ -1,5 +1,5 @@
 <?php
-  require 'database/database.php';
+  require '../database/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,14 +15,14 @@
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
     <!--js link-->
-    <script src="scripts/script.js" defer></script>
+    <script src="script.js" defer></script>
     <!--css file-->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <!--bootstrap link-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <!--favicon-->
-     <link rel="icon" type="image/x-icon" href="styles/img/favicon.ico">
+     <link rel="icon" type="image/x-icon" href="../styles/img/favicon.ico">
 </head>
 
 <body>
@@ -78,7 +78,7 @@
 </div>
 
 <?php
-  include_once 'includes/footer.php';
+  include_once '../includes/footer.php';
 ?>
 
 </body>
