@@ -20,7 +20,7 @@ class ProductController{
             $errors[] = $errorEmpty;
         }
 
-        if(!preg_match("/^[a-zA-Z]*$/", $name)){
+        if(!preg_match("/^[a-zA-Z\s]*$/", $name)){
             $errors[] = $errorChar . " Name must consist of letters only!";
         }
 
@@ -28,7 +28,11 @@ class ProductController{
             $errors[] = $errorChar;
         }
 
-        if($productType == 'DVD-disc'){
+        if($duplicateError != null){
+            $errors[] = "This SKU is taken! Please, choose another one!";
+        }
+
+        if($productType == 'DVD'){
             if(empty($size)){
                 $errors[] = $errorEmpty . "<br> Please, provide size!";
             }elseif(!is_numeric($size)){
@@ -51,10 +55,6 @@ class ProductController{
                 $errors[] = $errorChar;
             }
 
-        }
-
-        if($duplicateError != null){
-            $errors[] = "This SKU is taken! Please, choose another one!";
         }
 
         return $errors;

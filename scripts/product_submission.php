@@ -26,7 +26,7 @@ if(isset($_POST["save"])){
             }
             exit();
         }elseif(empty($error)){
-            if($productType == 'DVD-disc'){
+            if($productType == 'DVD'){
                 $PC = new ProductController();
                 $DVD = $PC->createDVD($sku, $name, $price, $productType, $size);
                 exit();

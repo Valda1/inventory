@@ -1,5 +1,5 @@
 <?php
-  require 'controllers/product_controller.php';
+  //require '../controllers/product_controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -57,14 +57,14 @@
  
 
   <fieldset>
-      <div class="d-flex flex-row">
-      <!--<div class="row mb-3 g-3 align-items-center">-->
+      <!--<div class="d-flex flex-row">-->
+      <div class="row mb-3 g-3 align-items-center">
           <div class="col-sm-2 col-lg-1">
               <label for="sku" class="col-form-label">SKU</label>
           </div>
 
           <div class="col-sm-auto position-relative">
-              <input id="sku" class="border border-primary rounded"  type="text" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
+              <input id="sku" class="form-control border border-primary rounded" type="text" placeholder="Enter the SKU" aria-describedby="basic-addon1" name="sku">
           </div>
       </div>
 
@@ -75,7 +75,7 @@
           <label for="name" class="col-form-label">Name</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="name" class="border border-primary rounded" type="text" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
+          <input id="name" class="form-control border border-primary rounded" type="text" placeholder="Enter the name" aria-describedby="basic-addon1" name="name">
         </div>
       </div>
 
@@ -84,13 +84,13 @@
           <label for="price" class="col-form-label">Price ($)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="price" class="border border-primary rounded" type="number" min="0.01" step="0.01" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
+          <input id="price" class="form-control border border-primary rounded" type="number" min="0.01" step="0.01" placeholder="Enter the price" aria-describedby="basic-addon1" name="price">
         </div>
       </div>
   </fieldset>
 
-  <!--<div class="row mb-5 g-3 align-items-center">-->
-  <div class="d-flex flex-row mb-5 g-3"> 
+  <div class="row mb-5 g-3 align-items-center">
+  <!--<div class="d-flex flex-row mb-5 g-3"> -->
     <div class="col-sm-2 col-lg-1">
         <label for="productType">Type Switcher</label>
     </div>   
@@ -115,7 +115,7 @@
           <label for="size" class="col-form-label">Size (MB)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="size" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the size" aria-describedby="basic-addon1" name="size">
+          <input id="size" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the size" name="size">
         </div>
       </div>
 </fieldset>
@@ -126,14 +126,14 @@
         <div class="row mb-1">
           <legend><em>Please, provide weight:</em></legend>
         </div>
-        <div class="d-flex flex-row">
+        <!--<div class="d-flex flex-row">-->
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="weight" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" aria-describedby="basic-addon1" name="weight">
+          <input id="weight" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the weight" name="weight">
         </div>
-      </div>
+      <!--</div>-->
 </div>
 </fieldset>
 
@@ -144,37 +144,37 @@
         <div class="row mb-1">
           <legend><em>Please, provide dimentions:</em></legend>
         </div>
-        <div class="d-flex flex-row">
+        <!--<div class="d-flex flex-row">-->
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="height" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" aria-describedby="basic-addon1" name="height">
+          <input id="height" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the height" name="height">
         </div>
-      </div>
+      <!--</div>-->
 </div>
 
       <!--<div class="d-flex flex-row mb-5 g-3 myDiv Furniture" id="showFurniture">-->
       <div class="row mb-3 g-3 align-items-center myDiv Furniture">
-      <div class="d-flex flex-row">
+      <!--<div class="d-flex flex-row">-->
         <div class="col-sm-2 col-lg-1">
           <label for="width" class="col-form-label">Width (CM)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="width" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" aria-describedby="basic-addon1" name="width">
+          <input id="width" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the width" name="width">
         </div>
-      </div>
+      <!--</div>-->
 </div>
 
       <div class="row mb-3 g-3 align-items-center myDiv Furniture">
-      <div class="d-flex flex-row">
+      <!--<div class="d-flex flex-row">-->
         <div class="col-sm-2 col-lg-1">
           <label for="length" class="col-form-label">Length (CM)</label>
         </div>
         <div class="col-sm-auto position-relative">
-          <input id="length" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" aria-describedby="basic-addon1" name="length">
+          <input id="length" type="number" min="1" class="form-control border border-primary rounded" placeholder="Enter the length" name="length">
         </div>
-      </div>
+      <!--</div>-->
 </div>
 </div>
 
