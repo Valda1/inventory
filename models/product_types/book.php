@@ -1,7 +1,5 @@
 <?php
 
-//require_once '../database/database.php';
-
 class Book extends Product{
 
     private string $sku;

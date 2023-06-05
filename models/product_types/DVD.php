@@ -1,6 +1,5 @@
 <?php
 
-//require_once '../database/database.php';
 require_once '../models/product.php';
 
 class DVD extends Product{

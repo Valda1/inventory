@@ -1,8 +1,5 @@
 <?php
 
-//include '../models/product_types/DVD.php';
-//include '../models/product_types/book.php';
-//include '../models/product_types/furniture.php';
 require '../controllers/product_controller.php';
 
 if(isset($_POST["save"])){
@@ -44,7 +41,7 @@ if(isset($_POST["save"])){
         }
 
 }else{
-    header("location: index.php");
+    header("location: index");
     exit();
 }
 

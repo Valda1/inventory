@@ -20,9 +20,9 @@ class ProductController{
             $errors[] = $errorEmpty;
         }
 
-        if(!preg_match("/^[a-zA-Z\s]*$/", $name)){
+        /*if(!preg_match("/^[a-zA-Z\s]*$/", $name)){
             $errors[] = $errorChar . " Name must consist of letters only!";
-        }
+        }*/
 
         if(!is_numeric($price)){
             $errors[] = $errorChar;
