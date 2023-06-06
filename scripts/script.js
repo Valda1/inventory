@@ -1,10 +1,3 @@
-/*$(document).ready(function(){
-    $("#add-product-btn").click(function(){
-        //window.location.replace("/add-product");
-        window.location.replace("http://localhost/task//scripts/add-product.php");
-    })
-});*/
-
 $(document).ready(function(){
     $("select").change(function(){
         $(this).find("option:selected").each(function(){
@@ -19,14 +12,6 @@ $(document).ready(function(){
     }).change();
 });
 
-/*$(document).ready(function(){
-    $("#cancelBtn").click(function(){
-        window.location.replace("http://localhost/task//scripts/index.php");
-        //window.location.replace("http://juniortask.valda.bimbirule.com/");
-
-        
-    })
-});*/
 
 $(document).ready(function(){
     $("#cards_form").submit(function(event){
@@ -65,9 +50,7 @@ $(document).ready(function(){
         function(){
             let errorMsg = document.getElementById('error-msg');
             if(errorMsg.textContent.trim() === ''){
-                //window.location.replace("http://localhost/task/index.php?error=none");
                 window.location.replace("../index.php?error=none");
-                //window.location.replace("http://juniortaskvaldabimbirule.id.lv?error=none");
             }else{
                 $("#icon").attr("hidden", false);
             }

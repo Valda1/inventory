@@ -41,7 +41,7 @@ if(isset($_POST["save"])){
         }
 
 }else{
-    header("location: index");
+    header("location: index.php");
     exit();
 }
 

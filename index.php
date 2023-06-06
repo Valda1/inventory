@@ -35,7 +35,6 @@
             </div> 
             <div class="container-fluid justify-content-end">
               <button id="add-product-btn" class="btn btn-success me-2 space-between" type="button"><a class="text-decoration-none link-light" href="add-product">ADD</a></button>
-              <!--<button id="add-product-btn" class="btn btn-success me-2 space-between" type="button">ADD</button>-->
             <form>
               <button id="delete-product-btn" form="cards_form" class="btn btn-success me-2" type="submit" name="delete">MASS DELETE</button>
             </form>

@@ -37,8 +37,7 @@
           <form>
           <button id="saveBtn" form="product_form" class="btn btn-success me-2 space-between" type="submit" name="save">Save</button>
           </form>
-          <!--<button id="cancelBtn" class="btn btn-success me-2" type="button">Cancel</button>-->
-          <button class="btn btn-success me-2" type="button"><a class="text-decoration-none link-light" href="index">Cancel</a></button>
+          <button class="btn btn-success me-2" type="button"><a class="text-decoration-none link-light" href="index.php">Cancel</a></button>
         </div>
       </nav>
 </div>
@@ -99,9 +98,7 @@
 <div id="attributes" class="mb-5">
   <fieldset>
     <div id="DVD" class="row mb-3 g-3 align-items-center myDiv DVD">
-      <!--<div class="row mb-1">-->
-          <legend><em>Please, provide size:</em></legend>
-      <!--</div>-->
+          <span><em>Please, provide size:</em></span>
       <div class="col-sm-2 col-lg-1">
           <label for="size" class="col-form-label">Size (MB)</label>
       </div>
@@ -113,9 +110,7 @@
 
   <fieldset>
     <div id="Book" class="row mb-3 g-3 align-items-center myDiv Book">
-        <!--<div class="row mb-1">-->
-          <legend><em>Please, provide weight:</em></legend>
-        <!--</div>-->
+          <span><em>Please, provide weight:</em></span>
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
@@ -128,9 +123,7 @@
   <fieldset>
     <div id="Furniture">
       <div class="row mb-3 g-3 align-items-center myDiv Furniture" >
-        <!--<div class="row mb-1">-->
-          <legend><em>Please, provide dimentions:</em></legend>
-        <!--</div>-->
+          <span><em>Please, provide dimentions:</em></span>
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>

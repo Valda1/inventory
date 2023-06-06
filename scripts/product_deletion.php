@@ -12,13 +12,12 @@ if(isset($_POST["delete"])){
             $DB->deleteProduct($sku);
         }
 
-        header("location: ../index?error=none");
+        header("location: ../index.php?error=none");
         exit();
-        //header("location: http://juniortaskvaldabimbirule.id.lv/?error=none");
   
 }
 
 }else{
-    header("location: ../index");
+    header("location: ../index.php");
     exit();
 }

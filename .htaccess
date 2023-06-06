@@ -1,5 +1,17 @@
+<IfModule mod_rewrite.c>
 RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME}\.php -f
+# Remove index.php from the URL
+RewriteCond %{THE_REQUEST} /index\.php [NC]
+RewriteRule ^(.*?)index\.php$ /$1 [L,R=301,NC,NE]
 
-RewriteRule ^(.*)$ $1.php [NC,L]
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+</IfModule>
+
+
+
+
+
