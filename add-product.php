@@ -98,7 +98,7 @@
 <div id="attributes" class="mb-5">
   <fieldset>
     <div id="DVD" class="row mb-3 g-3 align-items-center myDiv DVD">
-          <span><em>Please, provide size:</em></span>
+          <span class="msg"><em>Please, provide size:</em></span>
       <div class="col-sm-2 col-lg-1">
           <label for="size" class="col-form-label">Size (MB)</label>
       </div>
@@ -110,7 +110,7 @@
 
   <fieldset>
     <div id="Book" class="row mb-3 g-3 align-items-center myDiv Book">
-          <span><em>Please, provide weight:</em></span>
+          <span class="msg"><em>Please, provide weight:</em></span>
         <div class="col-sm-2 col-lg-1">
           <label for="weight" class="col-form-label">Weight (KG)</label>
         </div>
@@ -123,7 +123,7 @@
   <fieldset>
     <div id="Furniture">
       <div class="row mb-3 g-3 align-items-center myDiv Furniture" >
-          <span><em>Please, provide dimentions:</em></span>
+          <span class="msg"><em>Please, provide dimentions:</em></span>
         <div class="col-sm-2 col-lg-1">
           <label for="height" class="col-form-label">Height (CM)</label>
         </div>
