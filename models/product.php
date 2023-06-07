@@ -5,8 +5,8 @@ abstract class Product{
     private string $name;
     private float $price;
     private string $productType;
-    private string $size;
-    private string $weight;
+    private int $size;
+    private int $weight;
     private int $height;
     private int $length;
     private int $width;
